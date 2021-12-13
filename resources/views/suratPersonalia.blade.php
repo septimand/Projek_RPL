@@ -9,7 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-
+     <!-- summernote -->
+        <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
 
 
     <!-- Bootstrap core CSS -->
@@ -105,7 +106,24 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="row">
                 <input type="hidden" class="form-control" id="jenis_surat" name="jenis_surat" value ="Surat Personalia">
-                    <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
+                <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
+                <div class="row">
+                    <div class="col-9">
+                        <label class="form-label">Menimbang</label>
+                        <textArea type="text" class="form-control " id="menimbang" name="menimbang"  placeholder="Masukkan Menimbang" ></textArea>
+                    </div>
+                    <div class="col-2">
+                        <div >
+                            <label for="nama_pengaju" class="form-label">Action</label>
+                            <a href="#" class="tambahPengaju btn btn-info form-control">Tambah</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="suratPersonalia"></div>
+                <div class="mb-3">
+                    <label class="form-label">Mengingat</label>
+                    <textarea type="text" class="form-control" name="tema_kgt" id="summernote" placeholder="Masukkan Hal Mengingat" > </textarea>
+                </div>
                 <div class="mb-3">
                     <label class="form-label">Tentang</label>
                     <input type="text" class="form-control" name="tema_kgt" id="Temakegiatan" placeholder="Masukkan Tentang" >
@@ -123,6 +141,39 @@
     </main>
 </div>
 
+<!-- JavaScript -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+                <script type="text/javascript">
+
+                    $(' .tambahPengaju').on('click', function() {
+                        tambahPengaju();
+                    });
+
+                    function tambahPengaju(){
+                        var suratPersonalia = '<div class="row"><div class="col-9 mt-2"><textArea type="text" class="form-control " id="menimbang" name="menimbang"  placeholder="Masukkan Menimbang" ></textArea></div><div class="col-1 mt-2"><div ><a href="#" class="hapus btn btn-danger form-control">Hapus</a></div></div></div>';
+                        $(' .suratPersonalia').append(suratPersonalia);
+                    };
+
+                    $(' .hapus').live('click', function(){
+                        $(this).parent().parent().parent().remove();
+                    });
+
+                </script>
+<!--End JavaScript -->
+<!-- Summernote -->
+<script src="../../plugins/summernote/summernote-bs4.min.js"></script>
+            <script>
+            $(function () {
+                // Summernote
+                $('#summernote').summernote()
+
+                // CodeMirror
+                CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                mode: "htmlmixed",
+                theme: "monokai"
+                });
+            })
+            </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>

@@ -149,3 +149,7 @@ Route::get('/suratKeluarDSN', 'SuratDSNController@suratKeluar');
 
 //arsipsurat
 Route::get('/arsipSuratDSN', 'SuratDSNController@arsipSurat');
+
+Route::get('/ajax', function () {
+    return view('ajax');
+});
