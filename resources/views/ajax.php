@@ -10,7 +10,8 @@ $nomor_induk = $_GET['nomor_induk'];
 $query = mysqli_query($koneksi, "select * from users where nomor_induk='$nomor_induk'");
 $mahasiswa = mysqli_fetch_array($query);
 $data = array(
-            'nama_user'=> @$mahasiswa['nama_user'],);
+            'nama_user'=> @$mahasiswa['nama_user'],
+            'hak_akses'=> @$mahasiswa['hak_akses'],);
 
 //tampil data
 echo json_encode($data);

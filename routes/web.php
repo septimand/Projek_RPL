@@ -78,6 +78,14 @@ Route::post('/buatSuratBA/updateBA','BuatSuratController@updateBA');
 Route::get('/buatSuratBA/deleteBA/{id}','BuatSuratController@deleteBA');
 Route::get('/buatSuratBA/cetakSuratBA/{id}', 'BuatSuratController@cetakSuratBA');
 
+//suratKeterangan
+Route::get('/buatSuratKeterangan', 'BuatSuratController@buatSK');
+Route::get('/buatSuratKeterangan/SKA', 'BuatSuratController@SKA');
+Route::post('/buatSuratKeterangan/simpanSK', 'BuatSuratController@simpanSK');
+Route::get('/buatSuratKeterangan/editSK/{id}', 'BuatSuratController@editSK');
+Route::post('/buatSuratKeterangan/updateSK','BuatSuratController@updateSK');
+Route::get('/buatSuratKeterangan/deleteSK/{id}','BuatSuratController@deleteSK');
+
 //suratmasuk
 Route::get('/suratMasuk', 'SuratController@suratMasuk');
 Route::post('/suratMasuk/simpan', 'SuratController@simpan');

@@ -15,13 +15,15 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'nama_user' => 'yanita',
-            'nomor_induk' => '72180003',
-            'password' => bcrypt('fti01'),
-            'hak_akses' => 'admin',
-            'tgl_lahir' => '2001-05-21',
-            'no_hp' => '085278495628',
-            'foto_user' => 'yanita.jpg',
+            'nama_user' => 'Herling Yan Bridny Kalangi',
+            'id_user' => '72190307',
+            'nomor_induk' => '72190307',
+            'password' => bcrypt('fti03'),
+            'hak_akses' => 'Mahasiswa',
+            'email' => 'erling.bridny@si.ukdw.ac.id',
+            'tgl_lahir' => '2001-09-21',
+            'no_hp' => '085123780921',
+            'foto_user' => 'bridny.jpg',
             'remember_token' => str::random(30),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

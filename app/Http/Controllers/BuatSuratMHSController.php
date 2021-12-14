@@ -14,28 +14,28 @@ namespace App\Http\Controllers;
          return view('suratTugasMHS');
      }
      public function simpanST(Request $request){
-        $data = $request->all();
-        //dd($data);
-        $surat = new Surat;
-        $surat->id = $data['id'];
-        $surat->jenis_surat = $data['jenis_surat'];
-        $surat->no_induk = $data['no_induk'];
-        $surat->name = $data['name'];
-        $surat->kgt_tugas = $data['kgt_tugas'];
-        $surat->tema_kgt = $data['tema_kgt'];
-        $surat->pyng_kgt = $data['pyng_kgt'];
-        $surat->tgl_laksanakan = $data['tgl_laksanakan'];
-        $surat->save();
-        // DB::table('surat')->insert([
-        //     'id' => $request -> id,
-        //     'jenis_surat' => $request -> jenis_surat,
-        //     'no_induk' => $request -> no_induk,
-        //     'name' => $request -> name,
-        //     'kgt_tugas' => $request -> kgt_tugas,
-        //     'tema_kgt' => $request -> tema_kgt,
-        //     'pyng_kgt' => $request -> pyng_kgt,
-        //     'tgl_laksanakan' => $request -> tgl_laksanakan,
-        // ]);
+        // $data = $request->all();
+        // //dd($data);
+        // $surat = new Surat;
+        // $surat->id = $data['id'];
+        // $surat->jenis_surat = $data['jenis_surat'];
+        // $surat->no_induk = $data['no_induk'];
+        // $surat->name = $data['name'];
+        // $surat->kgt_tugas = $data['kgt_tugas'];
+        // $surat->tema_kgt = $data['tema_kgt'];
+        // $surat->pyng_kgt = $data['pyng_kgt'];
+        // $surat->tgl_laksanakan = $data['tgl_laksanakan'];
+        // $surat->save();
+        DB::table('surat')->insert([
+            'id' => $request -> id,
+            'jenis_surat' => $request -> jenis_surat,
+            'no_induk' => $request -> no_induk,
+            'name' => $request -> name,
+            'kgt_tugas' => $request -> kgt_tugas,
+            'tema_kgt' => $request -> tema_kgt,
+            'pyng_kgt' => $request -> pyng_kgt,
+            'tgl_laksanakan' => $request -> tgl_laksanakan,
+        ]);
 
         return redirect('/buatSuratTugasMHS');
     }

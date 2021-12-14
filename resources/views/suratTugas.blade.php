@@ -79,6 +79,12 @@
               Berita Acara
             </a>
           </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/buatSuratKeterangan">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
+                Surat Keterangan
+                </a>
+            </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span data-feather="mail"></span>
@@ -109,22 +115,22 @@
                     <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-5">
                         <label class="form-label">Nomor Induk</label>
-                        <input type="text" class="form-control " id="no_induk" name="no_induk[]"  placeholder="Masukkan Nomor Induk" >
+                        <input type="text" class="form-control " onkeyup="isi_otomatis()" id="nomor_induk" name="no_induk"  placeholder="Masukkan Nomor Induk" >
                     </div>
-                    <div class="col-6">
+                    <div class="col-7">
                         <label class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name[]" placeholder="Masukkan Nama" >
+                        <input type="text" class="form-control" id="nama_user" name="name" placeholder="Masukkan Nama" >
                     </div>
-                    <div class="col-2">
+                    <!--div class="col-2">
                         <div >
                             <label for="nama_pengaju" class="form-label">Action</label>
                             <a href="#" class="tambahPengaju btn btn-info form-control">Tambah</a>
                         </div>
-                    </div>
+                    </div-->
                 </div>
-                <div class="suratTugas"></div>
+                <!--div class="suratTugas"></div-->
                 <div class="mb-3">
                     <label class="form-label"> Keterangan Tugas Sebagai</label>
                     <input type="text" class="form-control" id="kgt_tugas" name="kgt_tugas" placeholder="Masukkan Keterangan Tugas">
@@ -146,9 +152,25 @@
         </div></form>
     </main>
 </div>
+
+            <script type="text/javascript">
+            function isi_otomatis(){
+                            var nomor_induk = $("#nomor_induk").val();
+                            $.ajax({
+                                url: '/ajax',
+                                data:"nomor_induk="+nomor_induk ,
+                            success: function (data) {
+                                var json = data,
+                                obj = JSON.parse(json);
+                                $('#nama_user').val(obj.nama_user);
+                            }
+                            });
+                    }
+            </script>
+
 <!-- JavaScript -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-                <script type="text/javascript">
+<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+                    <script type="text/javascript">
 
                     $(' .tambahPengaju').on('click', function() {
                         tambahPengaju();
@@ -163,7 +185,7 @@
                         $(this).parent().parent().parent().remove();
                     });
 
-                </script>
+                </script-->
 <!--End JavaScript -->
 
 

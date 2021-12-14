@@ -18,28 +18,28 @@ namespace App\Http\Controllers;
             return view('suratTugas');
         }
         public function simpanST(Request $request){
-            $data = $request->all();
-            //dd($data);
-            $surat = new Surat;
-            $surat->id = $data['id'];
-            $surat->jenis_surat = $data['jenis_surat'];
-            $surat->no_induk = $data['no_induk'];
-            $surat->name = $data['name'];
-            $surat->kgt_tugas = $data['kgt_tugas'];
-            $surat->tema_kgt = $data['tema_kgt'];
-            $surat->pyng_kgt = $data['pyng_kgt'];
-            $surat->tgl_laksanakan = $data['tgl_laksanakan'];
-            $surat->save();
-            // DB::table('surat')->insert([
-            //     'id' => $request -> id,
-            //     'jenis_surat' => $request -> jenis_surat,
-            //     'no_induk' => $request -> no_induk,
-            //     'name' => $request -> name,
-            //     'kgt_tugas' => $request -> kgt_tugas,
-            //     'tema_kgt' => $request -> tema_kgt,
-            //     'pyng_kgt' => $request -> pyng_kgt,
-            //     'tgl_laksanakan' => $request -> tgl_laksanakan,
-            // ]);
+            // $data = $request->all();
+            // //dd($data);
+            // $surat = new Surat;
+            // $surat->id = $data['id'];
+            // $surat->jenis_surat = $data['jenis_surat'];
+            // $surat->no_induk = $data['no_induk'];
+            // $surat->name = $data['name'];
+            // $surat->kgt_tugas = $data['kgt_tugas'];
+            // $surat->tema_kgt = $data['tema_kgt'];
+            // $surat->pyng_kgt = $data['pyng_kgt'];
+            // $surat->tgl_laksanakan = $data['tgl_laksanakan'];
+            // $surat->save();
+            DB::table('surat')->insert([
+                'id' => $request -> id,
+                'jenis_surat' => $request -> jenis_surat,
+                'no_induk' => $request -> no_induk,
+                'name' => $request -> name,
+                'kgt_tugas' => $request -> kgt_tugas,
+                'tema_kgt' => $request -> tema_kgt,
+                'pyng_kgt' => $request -> pyng_kgt,
+                'tgl_laksanakan' => $request -> tgl_laksanakan,
+            ]);
 
             return redirect('/buatSuratTugas');
         }
@@ -60,6 +60,7 @@ namespace App\Http\Controllers;
                     'tema_kgt' => $request -> tema_kgt,
                     'pyng_kgt' => $request -> pyng_kgt,
                     'tgl_laksanakan' => $request -> tgl_laksanakan,
+                    'keterangan' => $request -> keterangan,
             ]);
             return redirect('/buatSuratTugas');
         }
@@ -277,5 +278,44 @@ namespace App\Http\Controllers;
             $pdf = \PDF::loadView('cetakSuratBeritaAcara', ['ba' => $ba]);
             return $pdf->stream('SuratBeritaAcara.pdf');
             // return view('cetakSuratKeputusanDkn', ['sk' => $sk]);
+        }
+
+
+        //Surat Keterangan Aktif
+        public function buatSK()
+        {
+            $kkm = DB::table('surat')->where('jenis_surat','Surat Keterangan Aktif')->get();
+            return view('buatSuratKeterangan', ['kkm' => $kkm]);
+        }
+        public function SKA(){
+            return view('SKA');
+        }
+        public function simpanSK(Request $request){
+            DB::table('surat')->insert([
+                'id' => $request -> id,
+                'jenis_surat' => $request -> jenis_surat,
+                'name' => $request -> name,
+                'no_induk' => $request -> no_induk,
+                'keterangan_surat' => $request -> keterangan_surat,
+            ]);
+
+            return redirect('/buatSuratKeterangan');
+        }
+        public function editSK($id){
+            $sk = DB::table('surat')->where('id_surat',$id)->get();
+            return view('editSK', ['sk' => $sk]);
+            }
+        public function updateSK(Request $request) {
+                DB::table('surat')->where('id_surat', $request->id_surat)->update([
+                    'name' => $request -> name,
+                    'no_induk' => $request -> no_induk,
+                    'keterangan_surat' => $request -> keterangan_surat,
+            ]);
+            return redirect('/buatSuratKeterangan');
+        }
+
+        public function deleteSK($id) {
+            $sk = DB::table('surat')->where('id_surat',$id)->delete();
+            return redirect('/buatSuratKeterangan');
         }
 	}

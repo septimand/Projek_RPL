@@ -58,7 +58,7 @@
           <li class="nav-item">
             <a class="nav-link active" href="/buatSuratPersonaliaDSN">
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
-              Surat Personalia
+              Surat Keterangan
             </a>
           </li>
           <li class="nav-item dropdown">
@@ -79,7 +79,7 @@
       <div class="nav-link active">
       <a class="h6" href="#" type="button" style="text-decoration:none">Manajemen Surat</a>
         <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratPersonaliaDSN" type="button" style="text-decoration:none">Mengelolah Surat Personalia</a>
+        <a class="h6" href="/buatSuratPersonaliaDSN" type="button" style="text-decoration:none">Mengelolah Surat Keterangan</a>
       </div>
       <div>
            <ul>
@@ -132,19 +132,22 @@
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="viewSPModalLabel">Lihat Surat Personalia</h5>
+                            <h5 class="modal-title" id="viewSPModalLabel">Lihat Surat Keterangan </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
                             <div class="row">
                                 <div class="mb-3">
-                                    <label class="form-label"><b>Tentang</b></label>
-                                    <input type="text"  disabled class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->tema_kgt}}" >
+                                    <label class="form-label"><b>Nomor Induk</b></label>
+                                    <input type="text"  disabled class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->no_induk}}" >
                                 </div>
-                                    <center><label class="form-label text-center"> <b>Memutuskan :</b></label></center>
                                 <div class="mb-3">
-                                    <label class="form-label"> <b>Menetapkan</b></label>
-                                    <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->menetapkan}}">
+                                    <label class="form-label"> <b>Nama</b></label>
+                                    <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->name}}">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"> <b>Jabatan</b></label>
+                                    <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->keterangan_surat}}">
                                 </div>
                             </div>
                           </div>

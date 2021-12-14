@@ -79,6 +79,12 @@
               Berita Acara
             </a>
           </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/buatSuratKeterangan">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
+                Surat Keterangan
+                </a>
+            </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span data-feather="mail"></span>
@@ -107,16 +113,20 @@
             <input type="hidden" class="form-control "  name="id_surat" value="{{$k->id_surat}}" placeholder="Masukkan Nomor Induk" >
             <input type="hidden" class="form-control "  name="status" value="" >
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <input type="hidden" class="form-control "  name="keterangan" value="" >
             <div class="row">
-                <div class="mb-3">
-                    <label class="form-label">Nomor Induk</label>
-                    <input type="text" class="form-control "  name="no_induk" value="{{$k->no_induk}}" placeholder="Masukkan Nomor Induk" >
+              
+                <div class="row">
+                    <div class="col-5">
+                        <label class="form-label">Nomor Induk</label>
+                        <input type="text" class="form-control " onkeyup="isi_otomatis()" id="nomor_induk" name="no_induk"  value="{{$k->no_induk}}" >
+                    </div>
+                    <div class="col-7">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama_user" name="name" value="{{$k->name}}" >
+                    </div>
+                    </div-->
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Nama</label>
-                    <input type="text" class="form-control" name="name" value="{{$k->name}}" placeholder="Masukkan Nama" >
-                </div>
-
                 <div class="mb-3">
                     <label class="form-label"> Keterangan Tugas Sebagai</label>
                     <input type="text" class="form-control"  name="kgt_tugas" value="{{$k->kgt_tugas}}" placeholder="Masukkan Keterangan Tugas">
@@ -138,7 +148,20 @@
         </div></form>
     </main>@endforeach
 </div>
-
+<script type="text/javascript">
+            function isi_otomatis(){
+                            var nomor_induk = $("#nomor_induk").val();
+                            $.ajax({
+                                url: '/ajax',
+                                data:"nomor_induk="+nomor_induk ,
+                            success: function (data) {
+                                var json = data,
+                                obj = JSON.parse(json);
+                                $('#nama_user').val(obj.nama_user);
+                            }
+                            });
+                    }
+            </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

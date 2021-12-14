@@ -58,7 +58,7 @@
           <li class="nav-item">
             <a class="nav-link active" href="/buatSuratPersonaliaDSN">
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
-              Surat Personalia
+              Surat Keterangan
             </a>
           </li>
           <li class="nav-item dropdown">
@@ -80,9 +80,9 @@
       <div class="nav-link active">
       <a class="h6" href="#" type="button" style="text-decoration:none">Manajemen Surat</a>
       <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratPersonaliaDSN" type="button" style="text-decoration:none">Mengelolah Surat Personalia</a>
+        <a class="h6" href="/buatSuratPersonaliaDSN" type="button" style="text-decoration:none">Mengelolah Surat Keterangan</a>
         <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratPersonaliaDSN/editSPDSN/{{$k->id_surat}}" type="button" style="text-decoration:none">Edit Surat Personalia</a>
+        <a class="h6" href="/buatSuratPersonaliaDSN/editSPDSN/{{$k->id_surat}}" type="button" style="text-decoration:none">Edit Surat Keterangan</a>
       </div>
             <form method="post" action="/buatSuratPersonaliaDSN/updateSP">
             {{csrf_field()}}
@@ -90,15 +90,16 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="row">
                 <div class="mb-3">
-                    <label class="form-label">Tentang</label>
-                    <input type="text" class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->tema_kgt}}" >
+                    <label class="form-label">Nomor Induk</label>
+                    <input type="text" class="form-control" name="no_induk" id="Temakegiatan" value="{{$k->no_induk}}" >
                 </div>
                 <div class="mb-3">
-                    <label class="form-label"> Memutuskan :</label>
+                    <label class="form-label"> Nama</label>
+                    <input type="text" class="form-control"  name="name" id="Penyelenggarakegiatan" value="{{$k->name}}">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label"> Menetapkan</label>
-                    <input type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->menetapkan}}">
+                    <label class="form-label"> Jabatan</label>
+                    <input type="text" class="form-control"  name="keterangan_surat" id="Penyelenggarakegiatan" value="{{$k->keterangan_surat}}">
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
             </div>

@@ -26,11 +26,11 @@ class HomeController extends Controller
     {
         {
            $role = Auth::user()->hak_akses;
-            if($role == "admin"){
+            if($role == "Admin"){
                 return redirect('dashboardAdmin');
-            } else if($role == "mahasiswa"){
+            } else if($role == "Mahasiswa"){
                 return redirect('dashboardMahasiswa');
-            }else if($role == "dosen"){
+            }else if($role == "Dosen"){
                 return redirect('dashboardDosen');
             }else {
                 return redirect()->to('logout');

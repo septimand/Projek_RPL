@@ -58,7 +58,7 @@
           <li class="nav-item">
             <a class="nav-link active" href="/buatSuratPersonaliaDSN">
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
-              Surat Personalia
+              Surat Keterangan
             </a>
           </li>
           <li class="nav-item dropdown">
@@ -79,33 +79,40 @@
       <div class="nav-link active">
       <a class="h6" href="#" type="button" style="text-decoration:none">Manajemen Surat</a>
       <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratPersonaliaDSN" type="button" style="text-decoration:none">Mengelolah Surat Personalia</a>
+        <a class="h6" href="/buatSuratPersonaliaDSN" type="button" style="text-decoration:none">Mengelolah Surat Keterangan</a>
         <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratPersonaliaDSN/suratPersonaliaDSN" type="button" style="text-decoration:none">Surat Personalia</a>
+        <a class="h6" href="/buatSuratPersonaliaDSN/suratPersonaliaDSN" type="button" style="text-decoration:none">Tambah Surat Keterangan</a>
       </div>
             <form method="post" action="/buatSuratDSN/simpanSP">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="row">
-                <input type="hidden" class="form-control" id="jenis_surat" name="jenis_surat" value ="Surat Personalia">
+                <input type="hidden" class="form-control" id="jenis_surat" name="jenis_surat" value ="Surat Keterangan Aktif">
                 <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
-                <div class="mb-3">
-                    <label class="form-label">Tentang</label>
-                    <input type="text" class="form-control" name="tema_kgt" id="Temakegiatan" placeholder="Masukkan Tentang" >
+                <div class="col-5">
+                    <label class="form-label">Nomor induk</label>
+                    <input type="text" class="form-control"  id="nomor_induk" name="no_induk" value="{{ Auth::user()->nomor_induk }}" >
                 </div>
-                <div class="mb-3">
-                    <label class="form-label"> Memutuskan :</label>
+                <div class="col-8">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label"> Menetapkan</label>
-                    <input type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" placeholder="Masukkan Menetapkan">
+                <div class="col-5">
+                    <label class="form-label"> Nama </label>
+                    <input type="text" class="form-control"  name="name" value="{{ Auth::user()->nama_user }}">
                 </div>
+                <div class="col-8">
+                </div>
+                <div class="col-5">
+                    <label class="form-label"> Jabatan</label>
+                    <input type="text" class="form-control"  name="keterangan_surat"  value="{{ Auth::user()->hak_akses }}">
+                </div>
+                <div class="col-8">
+                </div>
+                <div class="col-8">
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
+                </div>
             </div>
         </form>
     </main>
 </div>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>
   </body>

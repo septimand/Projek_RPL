@@ -15,28 +15,16 @@ namespace App\Http\Controllers;
             return view('suratTugasDSN');
         }
         public function simpanST(Request $request){
-            $data = $request->all();
-            //dd($data);
-            $surat = new Surat;
-            $surat->id = $data['id'];
-            $surat->jenis_surat = $data['jenis_surat'];
-            $surat->no_induk = $data['no_induk'];
-            $surat->name = $data['name'];
-            $surat->kgt_tugas = $data['kgt_tugas'];
-            $surat->tema_kgt = $data['tema_kgt'];
-            $surat->pyng_kgt = $data['pyng_kgt'];
-            $surat->tgl_laksanakan = $data['tgl_laksanakan'];
-            $surat->save();
-            // DB::table('surat')->insert([                
-            //     'id' => $request -> id,
-            //     'jenis_surat' => $request -> jenis_surat,
-            //     'no_induk' => $request -> no_induk,
-            //     'name' => $request -> name,
-            //     'kgt_tugas' => $request -> kgt_tugas,
-            //     'tema_kgt' => $request -> tema_kgt,
-            //     'pyng_kgt' => $request -> pyng_kgt,
-            //     'tgl_laksanakan' => $request -> tgl_laksanakan,
-            // ]);
+            DB::table('surat')->insert([                
+                'id' => $request -> id,
+                'jenis_surat' => $request -> jenis_surat,
+                'no_induk' => $request -> no_induk,
+                'name' => $request -> name,
+                'kgt_tugas' => $request -> kgt_tugas,
+                'tema_kgt' => $request -> tema_kgt,
+                'pyng_kgt' => $request -> pyng_kgt,
+                'tgl_laksanakan' => $request -> tgl_laksanakan,
+            ]);
 
             return redirect('/buatSuratTugasDSN');
         }
@@ -74,7 +62,7 @@ namespace App\Http\Controllers;
         //Surat Personalia/SK
         public function buatSuratPersonalia()
         {
-            $sp = DB::table('surat')->where('jenis_surat','Surat Personalia')->get();
+            $sp = DB::table('surat')->where('jenis_surat','Surat Keterangan Aktif')->get();
             return view('buatSuratPersonaliaDSN', ['sp' => $sp]);
         }
         public function suratPersonalia(){
@@ -84,8 +72,9 @@ namespace App\Http\Controllers;
             DB::table('surat')->insert([                
                 'id' => $request -> id,
                 'jenis_surat' => $request -> jenis_surat,
-                'tema_kgt' => $request -> tema_kgt,
-                'menetapkan' => $request -> menetapkan,
+                'name' => $request -> name,
+                'no_induk' => $request -> no_induk,
+                'keterangan_surat' => $request -> keterangan_surat,
             ]);
 
             return redirect('/buatSuratPersonaliaDSN');
@@ -96,8 +85,9 @@ namespace App\Http\Controllers;
             }
             public function updateSP(Request $request) {
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
-                    'tema_kgt' => $request -> tema_kgt,
-                    'menetapkan' => $request -> menetapkan,
+                    'name' => $request -> name,
+                    'no_induk' => $request -> no_induk,
+                    'keterangan_surat' => $request -> keterangan_surat,
             ]);
             return redirect('/buatSuratPersonaliaDSN');
         }

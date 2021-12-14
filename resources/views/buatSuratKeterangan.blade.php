@@ -68,7 +68,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/buatSuratKKM">
+            <a class="nav-link " href="/buatSuratKKM">
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
               Surat KKM
             </a>
@@ -80,7 +80,7 @@
             </a>
           </li>
             <li class="nav-item">
-                <a class="nav-link" href="/buatSuratKeterangan">
+                <a class="nav-link active" href="/buatSuratKeterangan">
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
                 Surat Keterangan
                 </a>
@@ -103,11 +103,11 @@
       <div class="nav-link active">
       <a class="h6" href="#" type="button" style="text-decoration:none">Manajemen Surat</a>
         <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratKKM" type="button" style="text-decoration:none">Mengelolah Surat Keterangan Kegiatan Mahasiswa</a>
+        <a class="h6" href="/buatSuratKKM" type="button" style="text-decoration:none">Mengelolah Surat Keterangan Aktif</a>
       </div>
       <div>
            <ul>
-           <a class="btn btn-primary me-md-2" href="/buatSuratKKM/suratKKM" role="button">Buat Surat  (+)</a>
+           <a class="btn btn-primary me-md-2" href="/buatSuratKeterangan/SKA" role="button">Buat Surat  (+)</a>
           </ul>
       </div>
         <table class="table">
@@ -136,58 +136,45 @@
                     <td>{{$k -> keterangan}}</td>
                     <td>{{$k -> status}}</td>
                     <td>
-                        <a class="btn btn-primary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#viewSUModal<?php echo $no  ?>"><span data-feather="eye"></span></a>
+                        <a class="btn btn-primary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#viewSKAModal<?php echo $no  ?>"><span data-feather="eye"></span></a>
                         @if($k->status != 'Disetujui')
-                        <a class="btn btn-warning" href="buatSuratKKM/editKKM/{{$k->id_surat}}" role="button"><span data-feather="edit"></span></a>
-                        <a class="btn btn-danger" href="buatSuratKKM/deleteKKM/{{$k->id_surat}}" role="button"><span data-feather="trash"></span></a>
+                        <a class="btn btn-warning" href="buatSuratKeterangan/editSK/{{$k->id_surat}}" role="button"><span data-feather="edit"></span></a>
+                        <a class="btn btn-danger" href="buatSuratKeterangan/deleteSK/{{$k->id_surat}}" role="button"><span data-feather="trash"></span></a>
                         @endif
                         @if ($k->status == 'Disetujui' )
                         <a class="btn btn-info" href="buatSuratKKM/cetakSuratKKM/{{$k->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
                         @endif
                     </td>
-                    </tr>
-                    <!-- Modal view surat KKM-->
-                    <div class="modal fade" id="viewSUModal<?php echo $no ?>" tabindex="-1" aria-labelledby="viewSUModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="viewSUModalLabel">Lihat Surat Undangan</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
+                    </tr><!-- Modal View-->
+                     <div class="modal fade" id="viewSKAModal<?php echo $no  ?>" tabindex="-1" aria-labelledby="viewSPModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="viewSPModalLabel">Lihat Surat Keterangan </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
                             <div class="row">
                                 <div class="mb-3">
-                                    <label class="form-label">Hal</label>
-                                    <input type="text" class="form-control" disabled id="Temakegiatan" name="hal" value="{{$k->hal}}" >
+                                    <label class="form-label"><b>Nomor Induk</b></label>
+                                    <input type="text"  disabled class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->no_induk}}" >
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Kepada</label>
-                                    <input type="text" class="form-control" disabled id="Penyelenggarakegiatan" name="kepada" value="{{$k->kepada}}">
+                                    <label class="form-label"> <b>Nama</b></label>
+                                    <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->name}}">
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label"> Keterangan</label>
-                                    <input type="text" class="form-control" disabled id="Tempatkegiatan" name="keterangan_surat" value="{{$k->keterangan_surat}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label"> Tempat</label>
-                                    <input type="text" class="form-control" disabled id="tanngalkegiatan" name="tmpt_kgt" value="{{$k->tmpt_kgt}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label"> Taggal Kegiatan</label>
-                                    <input type="date" class="form-control" disabled id="Harikegiatan" name="tgl_laksanakan" value="{{$k->tgl_laksanakan}}">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label"> Waktu</label>
-                                    <input type="time" class="form-control" disabled id="tanngalkegiatan" name="waktu_kgt" value="{{$k->waktu_kgt}}">
-                                    </div>
+                                    <label class="form-label"> <b>Jabatan</b></label>
+                                    <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->keterangan_surat}}">
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
                         </div>
-                        </div>
+                      </div>
+                    </div>
                 </tbody>
                 @endif
                 @endforeach

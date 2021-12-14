@@ -58,7 +58,7 @@
           <li class="nav-item">
             <a class="nav-link " href="/buatSuratPersonaliaDSN">
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
-              Surat Personalia
+              Surat Keterangan
             </a>
           </li>
           <li class="nav-item dropdown">

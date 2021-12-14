@@ -65,7 +65,7 @@
             <li class="nav-item">
                 <a class="nav-link " href="/buatSuratPersonaliaDSN">
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
-                Surat Personalia
+                Surat Keterangan
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -84,96 +84,56 @@
         </nav>
     </div>
     </div>
-
-    <div class="content-wrapper">
-                    <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h3>Dashboard</h3>
-                        </div>
-
-                        </div>
-                    </div><!-- /.container-fluid -->
-            </section>
-
-                    <!-- Main content -->
-
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row">
-                        <div class="col-md-9 ">
-
-                            <!-- BAR CHART -->
-                            <div class="card card-default">
-                            <div class="card-header">
-                                <h3 class="card-title">Bar Chart</h3>
-
-                                <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="col-10">
+                    <main class="content ">
+                        <div class="container-fluid pt-4">
+                            <div class="row">
+                                <div class="col-sm-6 d-inline-flex">
+                                    <div class="card flex-fill" style="background-color: #39D5D5">
+                                        <div class="card-body py-4">
+                                            <div class="d-flex align-items-start">
+                                                <div class="flex-grow-1">
+                                                    <p class="mb-0">Surat Tugas</p>
+                                                    <h3 class="mb-2">{{$ST}}</h3>
+                                                    <a class="mb-0" href="/buatSuratTugasDSN">Lihat detail</a>
+                                                </div>
+                                                <div class="d-inline-block ms-3">
+                                                    <div class="stat mt-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#507A9E" class="bi bi-tag" viewBox="0 0 16 16">
+                                                            <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/>
+                                                            <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart">
-                                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; width: 100%;"></canvas>
+                                <div class="col-sm-6 d-inline-flex">
+                                    <div class="card flex-fill" style="background-color: #6D8BA5">
+                                        <div class="card-body py-4">
+                                            <div class="d-flex align-items-start">
+                                                <div class="flex-grow-1">
+                                                    <p class="mb-0" style="color: white;">Surat Keterangan</p>
+                                                    
+                                                    <h3 class="mb-2" style="color: white;">{{$SK}}</h3>
+                                                    
+                                                    <a class="mb-0" href="/buatSuratPersonaliaDSN" style="color:#89C5CC;">Lihat detail</a>
+                                                </div>
+                                                <div class="d-inline-block ms-3">
+                                                    <div class="stat mt-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#507A9E" class="bi bi-tag" viewBox="0 0 16 16">
+                                                            <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/>
+                                                            <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-
-                        <div class="col-lg-3 float-sm-right">
-                            <!-- small box -->
-                            <div class="small-box bg-red">
-                                <p align="center">Surat Personalia & SK</p>
-                                <div class="inner">
-                                    <font>Rata-Rata Pertahun :</font><br>
-                                    <font>rata-Rata Perbulan :</font><br>
-                                    <font>Total :</font>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-ios-paper"></i>
-                                </div>
-                                <a href="/buatSuratPersonalia" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        <!-- /.card -->
-
-                            <!-- small box -->
-                            <div class="small-box bg-yellow">
-                                <p align="center">Surat Tugas dan DP3</p>
-                            <div class="inner">
-                                <font>Rata-Rata Pertahun :</font><br>
-                                <font>rata-Rata Perbulan :</font><br>
-                                <font>Total :</font>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-ios-paper"></i>
-                            </div>
-                            <a href="/buatSuratTugas" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-    </div>
-                    <!-- /.content -->
-
-        <!-- jQuery -->
-        <script src="style/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap 4 -->
-        <script src="style/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="style/dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="style/dist/js/demo.js"></script>
+        </main>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>

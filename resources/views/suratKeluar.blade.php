@@ -79,6 +79,12 @@
               Berita Acara
             </a>
           </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/buatSuratKeterangan">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
+                Surat Keterangan
+                </a>
+            </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span data-feather="mail"></span>

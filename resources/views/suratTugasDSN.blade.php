@@ -58,7 +58,7 @@
           <li class="nav-item">
             <a class="nav-link " href="/buatSuratPersonaliaDSN">
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
-              Surat Personalia
+              Surat Keterangan
             </a>
           </li>
           <li class="nav-item dropdown">
@@ -89,24 +89,9 @@
                 <div class="mb-3">
                     <input type="hidden" class="form-control" id="jenis_surat" name="jenis_surat" value ="Surat Tugas">
                     <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
+                    <input type="hidden" class="form-control" id="name" name="name" value ="{{ Auth::user()->nama_user }}" >
+                    <input type="hidden" class="form-control " id="no_induk" name="no_induk" value ="{{ Auth::user()->nomor_induk }}" >
                 </div>
-                <div class="row">
-                    <div class="col-4">
-                        <label class="form-label">Nomor Induk</label>
-                        <input type="text" class="form-control " id="no_induk" name="no_induk[]"  placeholder="Masukkan Nomor Induk" >
-                    </div>
-                    <div class="col-6">
-                        <label class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name[]" placeholder="Masukkan Nama" >
-                    </div>
-                    <div class="col-2">
-                        <div >
-                            <label for="nama_pengaju" class="form-label">Action</label>
-                            <a href="#" class="tambahPengaju btn btn-info form-control">Tambah</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="suratTugas"></div>
                 <div class="mb-3">
                     <label class="form-label"> Keterangan Tugas Sebagai</label>
                     <input type="text" class="form-control" id="kgt_tugas" name="kgt_tugas" placeholder="Masukkan Keterangan Tugas">
@@ -128,26 +113,6 @@
         </div></form>
     </main>
 </div>
-
-<!-- JavaScript -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-                <script type="text/javascript">
-
-                    $(' .tambahPengaju').on('click', function() {
-                        tambahPengaju();
-                    });
-
-                    function tambahPengaju(){
-                        var suratTugas = '<div class="row"><div class="col-4 mt-2"><input type="text" class="form-control " id="no_induk" name="no_induk[]"  placeholder="Masukkan Nomor Induk" ></div><div class="col-6 mt-2"><input type="text" class="form-control" id="name" name="name[]" placeholder="Masukkan Nama" ></div><div class="col-1 mt-2"><div ><a href="#" class="hapus btn btn-danger form-control">Hapus</a></div></div></div>';
-                        $(' .suratTugas').append(suratTugas);
-                    };
-
-                    $(' .hapus').live('click', function(){
-                        $(this).parent().parent().parent().remove();
-                    });
-
-                </script>
-<!--End JavaScript -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/js/dashboard.js"></script>

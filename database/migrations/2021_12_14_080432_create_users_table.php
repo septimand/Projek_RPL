@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama_user');
-            $table->string('nomor_induk')->unique();
+            $table->string('id_user')->unique();
+            $table->string('nomor_induk');
             $table->timestamp('nomor_induk_verified_at')->nullable();
             $table->string('password');
             $table->enum('hak_akses', ['admin', 'dosen', 'mahasiswa'])->default('mahasiswa');

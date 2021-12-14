@@ -24,7 +24,6 @@
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="navbar-dark">
     <div class="nav-item text-nowrap">
       <a class="nav-link px-3" href="/logout">
@@ -75,20 +74,20 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/buatSuratBA">
+            <a class="nav-link " href="/buatSuratBA">
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
               Berita Acara
             </a>
           </li>
             <li class="nav-item">
-                <a class="nav-link" href="/buatSuratKeterangan">
+                <a class="nav-link active" href="/buatSuratKeterangan">
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span data-feather="file"></span>
                 Surat Keterangan
                 </a>
             </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <span data-feather="mail"></span>
+            <span data-feather="mail"></span>  
             &nbsp&nbsp&nbsp&nbsp Surat
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -100,43 +99,36 @@
         </ul>
       </div>
     </nav>
+    @foreach($sk as $k)
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="nav-link active">
-      <a class="h6" href="/buatSurat" type="button" style="text-decoration:none">Manajemen Surat</a>
+      <a class="h6" href="#" type="button" style="text-decoration:none">Manajemen Surat</a>
       <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratBA" type="button" style="text-decoration:none">Mengelolah Surat Berita Acara</a>
+        <a class="h6" href="/buatSuratKKM" type="button" style="text-decoration:none">Mengelolah Surat Keterangan Aktif</a>
         <a> &nbsp > &nbsp</a>
-        <a class="h6" href="/buatSuratBA/beritaAcara" type="button" style="text-decoration:none">Berita Acara Kegiatan</a>
+        <a class="h6" href="/buatSuratKKM/editKKM/{{$k->id_surat}}" type="button" style="text-decoration:none">Edit Surat Keterangan Aktif</a>
       </div>
-        <form method="post" action="/buatSurat/simpanSA">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+      <form method="post" action="/buatSuratKeterangan/updateSK">
+            {{csrf_field()}}
+            <input type="hidden" class="form-control "  name="id_surat" value="{{$k->id_surat}}" placeholder="Masukkan Nomor Induk" >
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="row">
-            <input type="hidden" class="form-control" id="jenis_surat" name="jenis_surat" value ="Berita Acara">
-            <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
                 <div class="mb-3">
-                    <label class="form-label">Tema Kegiatan</label>
-                    <input type="text" class="form-control" id="Temakegiatan" name="tema_kgt" placeholder="Masukkan Tema kegiatan" >
+                    <label class="form-label">Nomor Induk</label>
+                    <input type="text" class="form-control" name="no_induk" id="Temakegiatan" value="{{$k->no_induk}}" >
                 </div>
                 <div class="mb-3">
-                    <label class="form-label"> Tanggal</label>
-                    <input type="date" class="form-control" id="Tempatkegiatan" name="tgl_laksanakan" placeholder="Masukkan Tanggal kegiatan">
+                    <label class="form-label"> Nama</label>
+                    <input type="text" class="form-control"  name="name" id="Penyelenggarakegiatan" value="{{$k->name}}">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label"> Tempat</label>
-                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" placeholder="Masukkan Tempat Kegiatan">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> Narasumber</label>
-                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" placeholder="Masukkan Narasumber Kegiatan">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> Target Peserta Kegiatan</label>
-                    <input type="text" class="form-control" id="Harikegiatan" name="keterangan_surat" placeholder="Masukkan Peserta Kegiatan">
+                    <label class="form-label"> Jabatan</label>
+                    <input type="text" class="form-control"  name="keterangan_surat" id="Penyelenggarakegiatan" value="{{$k->keterangan_surat}}">
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
             </div>
         </form>
-    </main>
+    </main>@endforeach
 </div>
 
 

@@ -40,7 +40,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'nomor_induk';
+        return 'id_user';
     }   
 
 }
