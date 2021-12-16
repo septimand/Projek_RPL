@@ -10,7 +10,7 @@
 
     </head>
     <body>
-    @foreach($ba as $b)
+    @foreach($ba as $s)
     <style>
         td.judulSurat{
             font-size: 18px;
@@ -67,11 +67,11 @@
                         </font>
                         <br>
                         <font>
-                            <i><b>"How To Build Products at Tokopedia"</b></i>
+                            <i><b>"{{$s->tema_kgt}}"</b></i>
                         </font>
                         <br>
                         <font>
-                            Nomor : 000/A.00/FTI/2021
+                            Nomor : {{$s->no_surat}}
                         </font>
                     </center>
                 </td>
@@ -79,15 +79,14 @@
         </table>
 
 
-        <table width="75%" align="center">
+        <table width="100%" align="center">
             <tr>
                 <td style="text-align: justify">
                     <p>
-                        Pada hari ini: Rabu, 21 Oktober 2015 bertempat di Ruang Lecturer Hall Pdt. Rudy Budiman,
-                        Univeristas Krsiten Duta Wacana telah dilangsungkan Kuliah Umum dengan tema: <i>"How To Build Products at Tokopedia"</i> dengan
-                        mengundang pembicara yaitu Bpk. Leontinus Alpha Edison (Co-Founder Tokopedia). Acara ini
-                        diikuti oleh seluruh civitas akademika UKDW dan perwakilan dari beberapa mitra kerjasama
-                        Fakultas Teknologi Informasi UKDW.
+                        Pada hari ini: {{ \Carbon\Carbon::parse($s->tgl_laksanakan)->isoformat('dddd, D MMMM Y') }} bertempat di {{$s->tmpt_kgt}},
+                        Univeristas Krsiten Duta Wacana telah dilangsungkan Kuliah Umum dengan tema: <i>"{{$s->tema_kgt}}"</i> dengan
+                        mengundang pembicara yaitu {{$s->kepada}}. Acara ini
+                        diikuti oleh {{$s->keterangan_surat}}.
                     </p>
 
                     <p>
@@ -105,15 +104,18 @@
 
 
         <br>
-        <br>
 
-        <table width="50%" align="left" style="margin-left: 10px;">
+        <table width="50%" align="left" style="margin-left: 10px;" >
             <tr>
                 <td>
-                    <font style="font-size: 16px"> Yogyakarta, 21 Oktober 2021</font><br>
-                    <font style="font-size: 16px">Dekan</font><br><br><br><br><br><br>
-                    <font style="font-size: 16px"><b><u>Restyandito, S.Kom., MSIS., Ph.D.</u></b></font><br>
-                    <font style="font-size: 16px">NIK : 004 E 289</font>
+                    <font style="font-size: 16px"> Yogyakarta, {{ \Carbon\Carbon::parse($s->tanggal_masuk)->isoformat('D MMMM Y') }}</font><br>
+                    <font style="font-size: 16px">{{$s->jabatan}}</font><br>
+                    <div class="visible-print text-center">
+                        <!--{!! QrCode::size(250)->generate($s -> nama_penjabat); !!} -->
+                        <img src="images/{{$s->ttd}}" width="160" height="160">
+                    </div>
+                    <font style="font-size: 16px"><b><u>{{$s->nama_penjabat}}</u></b></font><br>
+                    <font style="font-size: 16px">NIK : {{$s->nik}}</font>
                 </td>
             </tr>
         </table>

@@ -113,34 +113,49 @@
             <div class="row">
                 <input type="hidden" class="form-control" id="jenis_surat" name="jenis_surat" value ="Surat Personalia">
                 <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
+                <div class="mb-3">
+                    <label class="form-label">Tentang</label>
+                    <input type="text" class="form-control" id="tema_kgt" name="tema_kgt" placeholder="Masukkan Tentang" >
+                </div>
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-10">
                         <label class="form-label">Menimbang</label>
-                        <textArea type="text" class="form-control " id="menimbang" name="menimbang"  placeholder="Masukkan Menimbang" ></textArea>
+                        <textArea type="text" class="form-control " id="menimbang" name="menimbang[]"  placeholder="Masukkan Menimbang" ></textArea>
                     </div>
                     <div class="col-2">
                         <div >
                             <label for="nama_pengaju" class="form-label">Action</label>
-                            <a href="#" class="tambahPengaju btn btn-info form-control">Tambah</a>
+                            <a href="#" class="tambahMenimbang btn btn-info form-control">Tambah</a>
                         </div>
                     </div>
                 </div>
-                <div class="suratPersonalia"></div>
-                <div class="mb-3">
-                    <label class="form-label">Mengingat</label>
-                    <textarea type="text" class="form-control" name="tema_kgt" id="summernote" placeholder="Masukkan Hal Mengingat" > </textarea>
+                <div class="menimbang"></div>
+                <div class="row">
+                    <div class="col-10">
+                        <label class="form-label">Mengingat</label>
+                        <textArea type="text" class="form-control " id="menimbang" name="mengingat[]"  placeholder="Masukkan Mengingat" ></textArea>
+                    </div>
+                    <div class="col-2">
+                        <div >
+                            <label for="nama_pengaju" class="form-label">Action</label>
+                            <a href="#" class="tambahMengingat btn btn-info form-control">Tambah</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Tentang</label>
-                    <input type="text" class="form-control" name="tema_kgt" id="Temakegiatan" placeholder="Masukkan Tentang" >
+                <div class="mengingat"></div>
+                <div class="row">
+                    <div class="col-10">
+                        <label class="form-label">Menetapkan</label>
+                        <textArea type="text" class="form-control " id="menimbang" name="menetapkan[]"  placeholder="Masukkan Mengingat" ></textArea>
+                    </div>
+                    <div class="col-2">
+                        <div >
+                            <label for="nama_pengaju" class="form-label">Action</label>
+                            <a href="#" class="tambahMenetapkan btn btn-info form-control">Tambah</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label"> Memutuskan :</label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> Menetapkan</label>
-                    <input type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" placeholder="Masukkan Menetapkan">
-                </div>
+                <div class="menetapkan"></div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
             </div>
         </form>
@@ -151,13 +166,32 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
                 <script type="text/javascript">
 
-                    $(' .tambahPengaju').on('click', function() {
-                        tambahPengaju();
+
+                    $(' .tambahMenimbang').on('click', function() {
+                        tambahMenimbang();
                     });
 
-                    function tambahPengaju(){
-                        var suratPersonalia = '<div class="row"><div class="col-9 mt-2"><textArea type="text" class="form-control " id="menimbang" name="menimbang"  placeholder="Masukkan Menimbang" ></textArea></div><div class="col-1 mt-2"><div ><a href="#" class="hapus btn btn-danger form-control">Hapus</a></div></div></div>';
-                        $(' .suratPersonalia').append(suratPersonalia);
+                    function tambahMenimbang(){
+                        var menimbang = '<div class="row"><div class="col-10 mt-2"><textArea type="text" class="form-control " id="menimbang" name="menimbang[]"  placeholder="Masukkan Menimbang" ></textArea></div><div class="col-2 mt-2"><div ><a href="#" class="hapus btn btn-danger form-control">Hapus</a></div></div></div>';
+                        $(' .menimbang').append(menimbang);
+                    };
+
+                    $(' .tambahMengingat').on('click', function() {
+                        tambahMengingat();
+                    });
+
+                    function tambahMengingat(){
+                        var mengingat = '<div class="row"><div class="col-10 mt-2"><textArea type="text" class="form-control " id="menimbang" name="mengingat[]"  placeholder="Masukkan Mengingat" ></textArea></div><div class="col-2 mt-2"><div ><a href="#" class="hapus btn btn-danger form-control">Hapus</a></div></div></div>';
+                        $(' .mengingat').append(mengingat);
+                    };
+
+                    $(' .tambahMenetapkan').on('click', function() {
+                        tambahMenetapkan();
+                    });
+
+                    function tambahMenetapkan(){
+                        var menetapkan = '<div class="row"><div class="col-10 mt-2"><textArea type="text" class="form-control " id="menimbang" name="menetapkan[]"  placeholder="Masukkan Mengingat" ></textArea></div><div class="col-2 mt-2"><div ><a href="#" class="hapus btn btn-danger form-control">Hapus</a></div></div></div>';
+                        $(' .menetapkan').append(menetapkan);
                     };
 
                     $(' .hapus').live('click', function(){
@@ -165,7 +199,7 @@
                     });
 
                 </script>
-<!--End JavaScript -->
+            <!--End JavaScript -->
 <!-- Summernote -->
 <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
             <script>

@@ -118,8 +118,8 @@
                       @if($m->id_pejabat != null)
                         @if($m->jenis_surat == 'Surat Tugas')
                         <a class="btn btn-info" href="suratMasukDSN/cetakST2/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
-                        @elseif ($m->jenis_surat == 'Surat Personalia')
-                        <a class="btn btn-info" href="#" role="button"><span data-feather="download-cloud"></span></a>
+                        @elseif ($m->jenis_surat == 'Surat Keterangan Aktif')
+                        <a class="btn btn-info" href="suratMasukDSN/cetakSk4/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
                         @endif
                       @endif
                     </td>

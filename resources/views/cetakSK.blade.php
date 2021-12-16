@@ -10,6 +10,7 @@
 
     </head>
     <body>
+    @foreach($sk as $s)
         <table>
             <tr>
                 <td width="60px">
@@ -47,7 +48,7 @@
                         </font>
                         <br>
                         <font>
-                            Nomor : 000/A.00/FTI/2021
+                            Nomor : {{$s->no_surat}}
                         </font>
                     </center>
                 </td>
@@ -56,7 +57,7 @@
 
         <br>
 
-        <table width="85%" >
+        <table width="70%" style="margin-left: 50px;">
             <tr>
                 <td style="text-align: justify">
                     <p style="font-size: 15px">
@@ -65,70 +66,72 @@
                 </td>
             </tr>
         </table>
-        <table width="60%" >
+        <table width="60%" align="center">
             <tr>
                 <td width="25%">
                     <font size="15px">Nama</font>
                 </td>
                 <td width="5%">:</td>
-                <td><b>nama</b></td>
+                <td><b>{{$s->nama_penjabat}}</b></td>
             </tr>
             <tr>
                 <td>
                     <font size="15px">NIDN</font>
                 </td>
                 <td>:</td>
-                <td><b>nim</b></td>
+                <td><b>{{$s->nik}}</b></td>
             </tr>
-            
+
             <tr>
                 <td>
                     <font size="15px">Jabatan</font>
                 </td>
                 <td>:</td>
-                <td><b>jabatan</b></td>
+                <td><b>{{$s->jabatan}}</b></td>
             </tr>
         </table>
-        <table width="85%" >
+        <table width="85%" style="margin-left: 50px;">
             <tr>
                 <td style="text-align: justify">
                     <p style="font-size: 15px">
-                    Dengan ini menerangkan dibawah ini:
+                    Dengan ini menerangkan nama dibawah ini:
                     </p>
                 </td>
             </tr>
         </table>
-        <table width="60%" >
+        <table width="60%" align="center">
             <tr>
                 <td width="25%">
                     <font size="15px">Nama</font>
                 </td>
                 <td width="5%">:</td>
-                <td><b>nama</b></td>
+                <td><b>{{$s->name}}</b></td>
             </tr>
             <tr>
                 <td>
                     <font size="15px">NIDN</font>
                 </td>
                 <td>:</td>
-                <td><b>nim</b></td>
+                <td><b>{{$s->no_induk}}</b></td>
             </tr>
-            
+
             <tr>
                 <td>
                     <font size="15px">Jabatan</font>
                 </td>
                 <td>:</td>
-                <td><b>jabatan</b></td>
+                <td><b>{{$s->keterangan_surat}}</b></td>
             </tr>
         </table>
         <br>
-        <table width="100%" style="margin-left: 30px; margin-right: 30px;">
+        <table width="100%" style="margin-left: 50px; margin-right: 50px; text-align: justify" align="center">
             <tr>
                 <td>
-                    <font size="15px">
-                        Demikian surat ini kami sampaikan. Atas, perhatian dan kerjasama kami ucapkan terimakasih.
-                    </font>
+                    <p>
+                        Merupakan Dosen Fakultas Teknologi Informasi Universitas Kristen Duta Wacana yang aktif
+                        sebagai tenaga pengajar. Demikian surat keterangan ini kami buat, untuk dapat digunakan
+                        sebagaimana mestinya. Atas, perhatian dan kerjasama kami ucapkan terimakasih.
+                    </p>
                 </td>
             </tr>
         </table>
@@ -136,18 +139,21 @@
         <br>
         <br>
 
-        <table width="50%" align="left" style="margin-left: 30px;">
+        <table width="50%" align="left" style="margin-left: 50px;">
             <tr>
                 <td>
-                    <font style="font-size: 15px"> Yogyakarta, tanggal_masuk</font><br>
-                    <font style="font-size: 15px">jabatan</font><br>
+                    <font style="font-size: 15px"> Yogyakarta, {{ \Carbon\Carbon::parse($s->tanggal_masuk)->isoformat('D MMMM Y') }}</font><br>
+                    <font style="font-size: 15px">{{$s->jabatan}}</font><br>
                     <div class="visible-print text-center">
+                        <!--{!! QrCode::size(250)->generate($s -> nama_penjabat); !!} -->
+                        <img src="images/{{$s->ttd}}" width="160" height="160">
                     </div>
-                    <font style="font-size: 15px"><b><u>nama_penjabat</u></b></font><br>
-                    <font style="font-size: 15px">NIK : 004 E 289</font>
+                    <font style="font-size: 15px"><b><u>{{$s->nama_penjabat}}</u></b></font><br>
+                    <font style="font-size: 15px">NIK : {{$s->nik}}</font>
                 </td>
             </tr>
         </table>
+        @endforeach
     </body>
 </html>
 

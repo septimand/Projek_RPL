@@ -89,7 +89,7 @@
                 <td style="text-align: justify">
                     <p style="font-size: 15px;">
                         Untuk tugas sebagai {{$s->kgt_tugas}} {{$s->tema_kgt}} yang diselenggarakan oleh {{$s->pyng_kgt}}
-                        pada tanggal {{$s->hari_kgt}}, {{$s->tgl_laksanakan}}.
+                        pada tanggal {{ \Carbon\Carbon::parse($s->tgl_laksanakan)->isoformat('dddd, D MMMM Y') }}.
                     </p>
                     <p style="font-size: 15px;">
                         Demikian surat tugas ini dibuat untuk dapat dipergunakan sebagaimana perlunya.
@@ -104,14 +104,14 @@
         <table width="85%" align="center">
             <tr>
                 <td>
-                    <font style="font-size: 15px"> Yogyakarta, {{$s->tanggal_masuk}}</font><br>
+                    <font style="font-size: 15px"> Yogyakarta, {{ \Carbon\Carbon::parse($s->tanggal_masuk)->isoformat('D MMMM Y') }}</font><br>
                     <font style="font-size: 15px"><b>{{$s->jabatan}}</b></font><br>
                     <div class="visible-print text-center">
                         <!--{!! QrCode::size(250)->generate($s -> nama_penjabat); !!} -->
                         <img src="images/{{$s->ttd}}" width="160" height="160">
                     </div>
                     <font style="font-size: 15px"><b><u>{{$s->nama_penjabat}}</u></b></font><br>
-                    <font style="font-size: 15px">NIK : 004 E 289</font>
+                    <font style="font-size: 15px">NIK : {{$s->nik}}</font>
                 </td>
             </tr>
         </table>

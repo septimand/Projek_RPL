@@ -134,18 +134,25 @@
                     <td>{{$k -> no_surat}}</td>
                     <td>{{$k -> tanggal_masuk}}</td>
                     <td>{{$k -> keterangan}}</td>
-                    <td>{{$k -> status}}</td>
+                    <td>
+                    @if($k->status == 'Disetujui')
+                                    <small class="btn btn-success ">{{$k -> status}}</small>
+                                    @elseif ($k->status == 'Ditolak')
+                                        <small class="btn btn-danger ">{{$k -> status}}</small>
+                                    @endif
+                    </td>
                     <td>
                         <a class="btn btn-primary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#viewSKAModal<?php echo $no  ?>"><span data-feather="eye"></span></a>
                         @if($k->status != 'Disetujui')
                         <a class="btn btn-warning" href="buatSuratKeterangan/editSK/{{$k->id_surat}}" role="button"><span data-feather="edit"></span></a>
                         <a class="btn btn-danger" href="buatSuratKeterangan/deleteSK/{{$k->id_surat}}" role="button"><span data-feather="trash"></span></a>
                         @endif
-                        @if ($k->status == 'Disetujui' )
+                        @if($k->id_pejabat != null)
                         <a class="btn btn-info" href="buatSuratKeterangan/cetakSK/{{$k->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
                         @endif
                     </td>
-                    </tr><!-- Modal View-->
+                    </tr>
+                    <!-- Modal View-->
                      <div class="modal fade" id="viewSKAModal<?php echo $no  ?>" tabindex="-1" aria-labelledby="viewSPModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">

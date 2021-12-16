@@ -88,6 +88,8 @@ namespace App\Http\Controllers;
                     'name' => $request -> name,
                     'no_induk' => $request -> no_induk,
                     'keterangan_surat' => $request -> keterangan_surat,
+                    'status' => $request -> status,
+                    'keterangan' => $request -> keterangan,
             ]);
             return redirect('/buatSuratPersonaliaDSN');
         }

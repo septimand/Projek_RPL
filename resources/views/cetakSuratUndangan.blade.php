@@ -42,7 +42,7 @@
         <table width="100%" style="margin-left: 30px; margin-right: 30px;">
             <tr>
                 <td align="right" colspan="3">
-                    <font size="15px">Yogyakarta, {{$s->tgl_surat}}</font>
+                    <font size="15px">Yogyakarta, {{ \Carbon\Carbon::parse($s->tgl_surat)->isoformat('D MMMM Y') }}</font>
                 </td>
             </tr>
         </table>
@@ -53,7 +53,7 @@
             <tr align="left">
                 <td style="font-size: 15px">Nomor</td>
                 <td style="font-size: 15px" align="center">:</td>
-                <td style="font-size: 15px">000/A.00/FTI/2021</td>
+                <td style="font-size: 15px">{{$s->no_surat}}</td>
             </tr>
             <tr>
                 <td style="font-size: 15px">Hal</td>
@@ -96,14 +96,21 @@
                 <td width="18%">
                     <font size="15px">Hari, Tanggal</font>
                 </td>
-                <td width="30%">: &nbsp; {{$s->hari_kgt}}, {{$s->tgl_laksanakan}}</td>
+                <td width="40%">: &nbsp; {{ \Carbon\Carbon::parse($s->tgl_laksanakan)->isoformat('dddd, D MMMM Y') }}</td>
+                <td><b></b></td>
+            </tr>
+            <tr>
+                <td width="18%">
+                    <font size="15px">Tempat</font>
+                </td>
+                <td width="5%">: {{$s->tmpt_kgt}}</td>
                 <td><b></b></td>
             </tr>
             <tr>
                 <td>
                     <font size="15px">Waktu</font>
                 </td>
-                <td>: &nbsp; {{$s->waktu_kgt}} &nbsp;Wib</td>
+                <td>: &nbsp;{{ \Carbon\Carbon::parse($s->waktu_kgt)->format('H:i') }} Wib</td>
                 <td></td>
             </tr>
         </table>
@@ -114,26 +121,23 @@
             <tr>
                 <td>
                     <font size="15px">
-                        Demikian surat ini kami sampaikan. Atas, perhatian dan kerjasama kami ucapkan terimakasih.
+                        Demikian surat ini kami sampaikan. Atas perhatian dan kerjasama kami ucapkan terimakasih.
                     </font>
                 </td>
             </tr>
         </table>
-
         <br>
-        <br>
-
         <table width="50%" align="left" style="margin-left: 30px;">
             <tr>
                 <td>
-                    <font style="font-size: 15px"> Yogyakarta, {{$s->tanggal_masuk}}</font><br>
+                    <font style="font-size: 15px"> Yogyakarta, {{ \Carbon\Carbon::parse($s->tanggal_masuk)->isoformat('D MMMM Y') }}</font><br>
                     <font style="font-size: 15px">{{$s->jabatan}}</font><br>
                     <div class="visible-print text-center">
                         <!--{!! QrCode::size(250)->generate($s -> nama_penjabat); !!} -->
                         <img src="images/{{$s->ttd}}" width="160" height="160">
                     </div>
                     <font style="font-size: 15px"><b><u>{{$s->nama_penjabat}}</u></b></font><br>
-                    <font style="font-size: 15px">NIK : 004 E 289</font>
+                    <font style="font-size: 15px">NIK : {{$s->nik}}</font>
                 </td>
             </tr>
         </table>

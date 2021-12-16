@@ -149,7 +149,7 @@
                         <a class="btn btn-warning" href="buatSuratPersonalia/editSP/{{$k->id_surat}}" role="button"><span data-feather="edit"></span></a>
                         <a class="btn btn-danger" href="buatSuratPersonalia/deleteSP/{{$k->id_surat}}" role="button"><span data-feather="trash"></span></a>
                         @endif
-                        @if ($k->status == 'Disetujui' )
+                        @if($k->id_pejabat != null)
                         <a class="btn btn-info" href="buatSuratPersonalia/cetakSP/{{$k->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
                         @endif
                     </td>
@@ -168,7 +168,14 @@
                                     <label class="form-label"><b>Tentang</b></label>
                                     <input type="text"  disabled class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->tema_kgt}}" >
                                 </div>
-                                    <center><label class="form-label text-center"> <b>Memutuskan :</b></label></center>
+                                <div class="mb-3">
+                                    <label class="form-label"><b>Menimbang</b></label>
+                                    <input type="text"  disabled class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->menimbang}}" >
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"><b>mengingat</b></label>
+                                    <input type="text"  disabled class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->mengingat}}" >
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label"> <b>Menetapkan</b></label>
                                     <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->menetapkan}}">

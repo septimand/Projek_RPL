@@ -88,6 +88,7 @@ namespace App\Http\Controllers;
                 'keterangan_surat' => $request -> keterangan_surat,
                 'tmpt_kgt' => $request -> tmpt_kgt,
                 'waktu_kgt' => $request -> waktu_kgt,
+                'tgl_surat' => $request -> tgl_surat,
                 'tgl_laksanakan' => $request -> tgl_laksanakan,
             ]);
 
@@ -99,10 +100,13 @@ namespace App\Http\Controllers;
             }
             public function updateKKM(Request $request) {
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
+                    'status' => $request -> status,
+                    'keterangan' => $request -> keterangan,
                     'hal' => $request -> hal,
                     'kepada' => $request -> kepada,
                     'keterangan_surat' => $request -> keterangan_surat,
                     'tmpt_kgt' => $request -> tmpt_kgt,
+                    'tgl_surat' => $request -> tgl_surat,
                     'waktu_kgt' => $request -> waktu_kgt,
                     'tgl_laksanakan' => $request -> tgl_laksanakan,
             ]);

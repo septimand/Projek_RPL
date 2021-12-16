@@ -92,6 +92,12 @@ Route::get('/suratMasuk', 'SuratController@suratMasuk');
 Route::post('/suratMasuk/simpan', 'SuratController@simpan');
 Route::post('/suratMasuk/simpanTTD', 'SuratController@ttd');
 Route::post('/suratMasuk/keterangan', 'SuratController@ketSimpan');
+Route::get('/suratMasuk/cetakSP01/{id}', 'SuratController@cetakSP01');
+Route::get('/suratMasuk/cetakST02/{id}', 'SuratController@cetakST02');
+Route::get('/suratMasuk/cetakSU03/{id}', 'SuratController@cetakSU03');
+Route::get('/suratMasuk/cetakSuratKKM04/{id}', 'SuratController@cetakSuratKKM04');
+Route::get('/suratMasuk/cetakSuratBA05/{id}', 'SuratController@cetakSuratBA05');
+Route::get('/suratMasuk/cetakSK06/{id}', 'SuratController@cetakSK06');
 
 //suratkeluar
 Route::get('/suratKeluar', 'SuratController@suratKeluar');
@@ -152,6 +158,7 @@ Route::get('/buatSuratPersonaliaDSN/cetakSP/{id}', 'BuatSuratDSNController@cetak
 //suratmasuk
 Route::get('/suratMasukDSN', 'SuratDSNController@suratMasuk');
 Route::get('/suratMasukDSN/cetakST2/{id}', 'SuratDSNController@cetakST');
+Route::get('/suratMasukDSN/cetakSk4/{id}', 'SuratDSNController@cetakSK');
 
 //suratkeluar
 Route::get('/suratKeluarDSN', 'SuratDSNController@suratKeluar');

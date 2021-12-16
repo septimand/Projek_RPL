@@ -15,6 +15,12 @@ class SuratDSNController extends Controller{
         return $pdf->stream('Surat Tugas.pdf');
         //return view('cetakSuratTugas', ['st' => $st]);
         }
+    public function cetakSK($id){
+            $sk = DB::table('view_SK')->where('id_surat',$id)->get();
+            $pdf = \PDF::loadView('cetakSK', ['sk' => $sk]);
+            return $pdf->stream('SuratKeterangan.pdf');
+            //return view('cetakSK', ['sk' => $sk]);
+        }
     public function suratKeluar() {
         $sk = DB::table('surat')->where('status',null)
         ->orWhere('status','Ditolak')

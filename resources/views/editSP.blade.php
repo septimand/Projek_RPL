@@ -118,11 +118,19 @@
                     <input type="text" class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$k->tema_kgt}}" >
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Menimbang</label>
+                    <input type="text" class="form-control" name="menimbang[]" id="Temakegiatan" value="{{$k->menimbang}}" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mengingat</label>
+                    <input type="text" class="form-control" name="mengingat[]" id="Temakegiatan" value="{{$k->mengingat}}" >
+                </div>
+                <div class="mb-3">
                     <label class="form-label"> Memutuskan :</label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Menetapkan</label>
-                    <input type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$k->menetapkan}}">
+                    <input type="text" class="form-control"  name="menetapkan[]" id="Penyelenggarakegiatan" value="{{$k->menetapkan}}">
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
             </div>

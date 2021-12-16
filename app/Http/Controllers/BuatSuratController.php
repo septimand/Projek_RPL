@@ -86,13 +86,17 @@ namespace App\Http\Controllers;
             return view('suratPersonalia');
         }
         public function simpanSP(Request $request){
-            DB::table('surat')->insert([
-                'id' => $request -> id,
-                'jenis_surat' => $request -> jenis_surat,
-                'tema_kgt' => $request -> tema_kgt,
-                'menetapkan' => $request -> menetapkan,
-            ]);
-
+            $data = $request->all();
+            //DB::table('surat')->insert([
+                $surat = new Surat;
+                $surat->id = $data ["id"];
+                $surat->jenis_surat = $data ["jenis_surat"];
+                $surat->mengingat = $data ["mengingat"];
+                $surat->menimbang = $data ["menimbang"];
+                $surat->menetapkan = $data ["menetapkan"];
+                $surat->tema_kgt = $data ["tema_kgt"];
+            //]);
+            $surat->save();
             return redirect('/buatSuratPersonalia');
         }
         public function editSP($id){
@@ -112,10 +116,15 @@ namespace App\Http\Controllers;
         }
 
         public function cetakSP($id){
-            $sp = DB::table('view_suratpersonalia')->where('id_surat',$id)->get();
-            $pdf = \PDF::loadView('cetakSuratPersonalia', ['sp' => $sp]);
+            $sp = DB::table('view_suratpersonalia')->where('id_surat',$id)->get(); 
+            $cetakJson = Surat::where('id_surat', $id)->first();
+            // $mengingat = $cetakJson->mengingat;
+            // $menimbang = $cetakJson->menimbang;
+            // $menetapkan = $cetakJson->menetapkan;
+            $pdf = \PDF::loadView('cetakSuratPersonalia',compact('sp','cetakJson'), ['sp' => $sp, 'cetakJson' => $cetakJson]);
+            // $pdf = \PDF::loadView('cetakSuratPersonalia', ['sp' => $sp, 'mengingat' => $mengingat, 'menimbang' => $menimbang, 'menetapkan' => $menetapkan]);
             return $pdf->stream('SuratPersonalia.pdf');
-            // return view('cetakSuratKeputusanDkn', ['sk' => $sk]);
+            // return view('cetakSuratPersonalia', ['sp' => $sp,'cetakJson' => $cetakJson]);
         }
 
         //Surat Undangan
@@ -151,10 +160,13 @@ namespace App\Http\Controllers;
             }
             public function updateSU(Request $request) {
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
+                    'status' => $request -> status,
+                    'keterangan' => $request -> keterangan,
                     'hal' => $request -> hal,
                     'kepada' => $request -> kepada,
                     'keterangan_surat' => $request -> keterangan_surat,
                     'tmpt_kgt' => $request -> tmpt_kgt,
+                    'tgl_surat' => $request -> tgl_surat,
                     'waktu_kgt' => $request -> waktu_kgt,
                     'tgl_laksanakan' => $request -> tgl_laksanakan,
             ]);
@@ -189,6 +201,7 @@ namespace App\Http\Controllers;
                 'id' => $request -> id,
                 'jenis_surat' => $request -> jenis_surat,
                 'hal' => $request -> hal,
+                'tgl_surat' => $request -> tgl_surat,
                 'kepada' => $request -> kepada,
                 'keterangan_surat' => $request -> keterangan_surat,
                 'tmpt_kgt' => $request -> tmpt_kgt,
@@ -205,8 +218,11 @@ namespace App\Http\Controllers;
             }
             public function updateKKM(Request $request) {
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
+                    'status' => $request -> status,
+                    'keterangan' => $request -> keterangan,
                     'hal' => $request -> hal,
                     'kepada' => $request -> kepada,
+                    'tgl_surat' => $request -> tgl_surat,
                     'keterangan_surat' => $request -> keterangan_surat,
                     'tmpt_kgt' => $request -> tmpt_kgt,
                     'waktu_kgt' => $request -> waktu_kgt,
@@ -259,6 +275,8 @@ namespace App\Http\Controllers;
             }
             public function updateBA(Request $request) {
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
+                    'status' => $request -> status,
+                    'keterangan' => $request -> keterangan,
                     'tema_kgt' => $request -> tema_kgt,
                     'kepada' => $request -> kepada,
                     'keterangan_surat' => $request -> keterangan_surat,
@@ -274,7 +292,7 @@ namespace App\Http\Controllers;
         }
 
         public function cetakSuratBA($id){
-            $ba = DB::table('surat')->where('id_surat',$id)->get();
+            $ba = DB::table('view_beritaAcara')->where('id_surat',$id)->get();
             $pdf = \PDF::loadView('cetakSuratBeritaAcara', ['ba' => $ba]);
             return $pdf->stream('SuratBeritaAcara.pdf');
             // return view('cetakSuratKeputusanDkn', ['sk' => $sk]);
@@ -307,6 +325,8 @@ namespace App\Http\Controllers;
             }
         public function updateSK(Request $request) {
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
+                    'status' => $request -> status,
+                    'keterangan' => $request -> keterangan,
                     'name' => $request -> name,
                     'no_induk' => $request -> no_induk,
                     'keterangan_surat' => $request -> keterangan_surat,
@@ -319,7 +339,7 @@ namespace App\Http\Controllers;
             return redirect('/buatSuratKeterangan');
         }
         public function cetakSK($id){
-            $sk = DB::table('surat')->where('id_surat',$id)->get();
+            $sk = DB::table('view_SK')->where('id_surat',$id)->get();
             $pdf = \PDF::loadView('cetakSK', ['sk' => $sk]);
             return $pdf->stream('SuratKeterangan.pdf');
             //return view('cetakSK', ['sk' => $sk]);

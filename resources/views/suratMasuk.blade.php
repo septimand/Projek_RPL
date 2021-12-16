@@ -121,7 +121,7 @@
                     $no =1;
                 @endphp
                 @foreach($sm as $m)
-                @if($m->id_pejabat == null && $m->keterangan == null)
+                
                 <tbody>
                     <tr>
                     <th scope="row">{{ $no++}}</th>
@@ -138,6 +138,7 @@
                                         <small class="badge badge-pill badge-warning">diproses</small>
                                     @endif
                     <td>
+                    
                         <!--view surat-->
                         @if($m->jenis_surat == 'Surat Personalia')
                             <a class="btn btn-primary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#viewSPModal<?php echo $no  ?>"><span data-feather="eye"></span></a>
@@ -149,8 +150,10 @@
                             <a class="btn btn-primary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#viewSKKMModal<?php echo $no  ?>"><span data-feather="eye"></span></a>
                         @elseif ($m->jenis_surat == 'Berita Acara')
                         <a class="btn btn-primary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#viewBAModal<?php echo $no  ?>"><span data-feather="eye"></span></a>
+                        @elseif ($m->jenis_surat == 'Surat Keterangan Aktif')
+                        <a class="btn btn-primary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#viewSKAModal<?php echo $no  ?>"><span data-feather="eye"></span></a>
                         @endif
-                        
+                        @if($m->id_pejabat == null && $m->keterangan == null )
                         <!--validasi surat-->
                         <a class="btn btn-danger" href="#" role="button" data-bs-toggle="modal" data-bs-target="#validasiModal<?php echo $no  ?>"><span data-feather="file-plus"></span></a>
                         
@@ -160,6 +163,23 @@
                             @elseif ($m->status == 'Ditolak')
                             <a class="btn btn-warning" href="#" role="button" data-bs-toggle="modal" data-bs-target="#ketModal<?php echo $no  ?>"><span data-feather="alert-octagon"></span></a>
                             @endif
+                        @endif
+                        <!--Download surat-->
+                        @if($m->id_pejabat != null)
+                                @if($m->jenis_surat == 'Surat Personalia')
+                                    <a class="btn btn-info" href="suratMasuk/cetakSP01/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
+                                @elseif ($m->jenis_surat == 'Surat Tugas')
+                                    <a class="btn btn-info" href="suratMasuk/cetakST02/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
+                                @elseif ($m->jenis_surat == 'Surat Undangan')
+                                    <a class="btn btn-info" href="suratMasuk/cetakSU03/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
+                                @elseif ($m->jenis_surat == 'Surat Keterangan Kegiatan Mahasiswa')
+                                    <a class="btn btn-info" href="suratMasuk/cetakSuratKKM04/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
+                                @elseif ($m->jenis_surat == 'Berita Acara')
+                                    <a class="btn btn-info" href="suratMasuk/cetakSuratBA05/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
+                                @elseif ($m->jenis_surat == 'Surat Keterangan Aktif')
+                                    <a class="btn btn-info" href="suratMasuk/cetakSK06/{{$m->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
+                                @endif
+                        @endif
                     </td>
                     </tr>
                       <!-- Modal View surat Tugas-->
@@ -359,6 +379,36 @@
                           </div>
                         </div>
                       </div>
+                      <!-- Modal View SK-->
+                     <div class="modal fade" id="viewSKAModal<?php echo $no  ?>" tabindex="-1" aria-labelledby="viewSPModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="viewSPModalLabel">Lihat Surat Keterangan </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row">
+                                <div class="mb-3">
+                                    <label class="form-label"><b>Nomor Induk</b></label>
+                                    <input type="text"  disabled class="form-control" name="tema_kgt" id="Temakegiatan" value="{{$m->no_induk}}" >
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"> <b>Nama</b></label>
+                                    <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$m->name}}">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"> <b>Jabatan</b></label>
+                                    <input  disabled type="text" class="form-control"  name="menetapkan" id="Penyelenggarakegiatan" value="{{$m->keterangan_surat}}">
+                                </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                             <!-- validasi surat-->
                             <form method="post" action="/suratMasuk/simpan">
                             <div class="modal fade" id="validasiModal<?php echo $no  ?>" tabindex="-1" aria-labelledby="validasiModalLabel" aria-hidden="true">
@@ -406,8 +456,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" class="form-control "  name="id_surat" value="{{$m->id_surat}}" >
-                        @if ($m->jenis_surat == 'Surat Personalia' )
+                        @if ($m->jenis_surat == 'Surat Personalia')
                             <input type="hidden" class="form-control "  name="no_surat" value="{{ $inventarisA }}/A/FTI/<?php echo date("Y")?>">
+                        @elseif ($m->jenis_surat == 'Surat Keterangan Aktif')
+                            <input type="hidden" class="form-control "  name="no_surat" value="{{ $inventarisB1 }}/B/FTI/<?php echo date("Y")?>">
                         @elseif ($m->jenis_surat == 'Surat Keterangan Kegiatan Mahasiswa')
                             <input type="hidden" class="form-control "  name="no_surat" value="{{ $inventarisB }}/B/FTI/<?php echo date("Y")?>">
                         @elseif ($m->jenis_surat == 'Surat Undangan')
@@ -466,7 +518,6 @@
                                 </div>
                                 </form>
         </tbody>
-        @endif
      @endforeach
     </table>
     </main>

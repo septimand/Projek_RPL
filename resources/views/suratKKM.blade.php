@@ -117,6 +117,10 @@
                     <input type="text" class="form-control" id="Temakegiatan" name="hal" placeholder="Masukkan Perihal" >
                 </div>
                 <div class="mb-3">
+                    <label class="form-label"> Taggal Pembuatan Surat</label>
+                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_surat">
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Kepada</label>
                     <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" placeholder="Masukkan Tujuan Surat">
                 </div>

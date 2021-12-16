@@ -7,29 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
+        
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 
 
     </head>
     <body>
-    @foreach($sp as $k)
-        <style>
-            div.prodi{
-                font-size: 14px;
-            }
 
-            li{
-                margin-left: 15px;
-            }
 
-            td.judul{
-                margin-right: 25px;
-                margin-left: 25px;
-            }
-        </style>
-
-        <center>
         <table>
             <tr>
                 <td width="60px">
@@ -58,7 +43,7 @@
 
         <br>
         <br>
-
+        @foreach($sp as $k)
         <table width="100%">
             <tr>
                 <td align="center">
@@ -75,15 +60,15 @@
                             UNIVERSITAS KRISTEN DUTA WACANA
                         </font>
                         <br>
-                        <font size="12px">
-                            Nomor :
+                        <font size="14px">
+                            Nomor : <b>{{$k->no_surat}}</b>
                         </font>
                         <br>
                         <br>
                         <font size="12px">
-                        
+
                             Tentang : 
-                            
+
                         </font>
                     </center>
                 </td>
@@ -101,11 +86,43 @@
                     </font>
                 </td>
             </tr>
-        </table>
+        </table> @endforeach
+
+        <br>
+        <div class="col-sm; ml-30; mr-30;" align="justify" style="margin-left: 75px; margin-right: 75px">
+        Dekan Fakultas Teknologi Informasi Universitas Kristen Duta Wacara <br>
+
+        Menimbang :
+        <?php $no = 1; ?>
+        @foreach ($cetakJson->menimbang as $k)
+        <div class="col-sm; ml-30; mr-30;" align="justify" style="margin-left: 80px; margin-right: 75px">
+            {{$no++}}. {{ $k }}
+        </div>
+        @endforeach
+
+        Meningat :
+        <?php $no = 1; ?>
+        @foreach ($cetakJson->mengingat as $data)
+        <div class="col-sm; ml-30; mr-30;" align="justify" style="margin-left: 75px; margin-right: 75px">
+            {{$no++}}. {{ $data }}
+        </div>
+        @endforeach
 
         <br>
 
-        <table width="75%" style="font-size:12px; text-align: justify" align="center">
+        <div class="row" align="center">
+        MEMUTUSKAN:
+        </div>
+        <br>
+
+        Menetapkan:
+        <?php $no = 1; ?>
+        @foreach ($cetakJson->menetapkan as $data)
+        <div class="col-sm; ml-30; mr-30;" align="justify" style="margin-left: 75px; margin-right: 75px">
+            {{$no++}}. {{ $data }}
+        </div>
+        @endforeach
+        <!-- <table width="75%" style="font-size:12px; text-align: justify" align="center">
             <tr>
                 <td colspan="4" style="text-align: justify">
                     <font size="12px">Dekan Fakultas Teknologi Informasi Universitas Kristen Duta Wacana :</font>
@@ -116,8 +133,15 @@
                     Menimbang
                 </td>
                 <td width="5%" align="center" valign="top" rowspan="4">:</td>
-                <td width="2%" valign="top">a.</td>
+                @php
+                    $no =1;
+                @endphp
+                @foreach($cetakJson->menimbang as $k)
+                <td width="2%" valign="top">{{$no++}}.</td>
+                {{$k}}
+                @endforeach
                 <td>
+
                     Bahwa untuk kelancaran perkuliahan dan dukungan penuh pelaksanaan penelitian dosen
                     dan mahasiswa pada fasilitas Laboratorium, dipandang perlu adanya koordinator laboratorium
                     Fakultas Teknologi Informasi (FTI) Universitas Kristen Duta Wacana (UKDW) Yogyakarta;
@@ -153,7 +177,14 @@
                     Mengingat
                 </td>
                 <td width="5%" align="center" valign="top" rowspan="6">:</td>
-                <td width="2%" valign="top">1.</td>
+                @php
+                    $no =1;
+                @endphp
+                @foreach($cetakJson->mengingat as $k)
+                <td width="2%" valign="top">{{$no++}}.</td>
+                {{$k}}
+                @endforeach
+
                 <td>
                     Undang-undang Republik Indonesia Nomor 14 Tahun 2004 tentang Guru dan Dosen.
                 </td>
@@ -213,7 +244,13 @@
                     Menetapkan
                 </td>
                 <td width="10%" align="center" valign="top">:</td>
-                <td></td>
+                @php
+                    $no =1;
+                @endphp
+                @foreach($cetakJson->menetapkan as $data)
+                <td width="2%" valign="top">{{$no++}}.</td>
+                {{ $data }}
+                @endforeach
             </tr>
             <tr style="font-size:12px" >
                 <td valign="top">
@@ -224,7 +261,6 @@
                 <td valign="top" align="center"><p>:</p></td>
                 <td>
                     <p>
-                        {{$k->menetapkan}}
                     </p>
                 </td>
             </tr>
@@ -237,8 +273,8 @@
                 <td valign="top" align="center"><p>:</p></td>
                 <td>
                     <p>
-                        <!--Terhitung mulai tanggal 1 Januari 2019 - 31 Desember 2019 mengangkat <b>Umi Proboyekti, S.Kom., MLIS.</b>
-                        sebagai koordinator Pengelolaan Tenaga Volunteer Laboratorium FTI UKDW.-->
+                        Terhitung mulai tanggal 1 Januari 2019 - 31 Desember 2019 mengangkat <b>Umi Proboyekti, S.Kom., MLIS.</b>
+                        sebagai koordinator Pengelolaan Tenaga Volunteer Laboratorium FTI UKDW.
                     </p>
                 </td>
             </tr>
@@ -251,8 +287,8 @@
                 <td valign="top" align="center"><p>:</p></td>
                 <td>
                     <p>
-                        <!--Berkaitan dengan beban kerja yang ditugaskan, kepada Koordinator Laboratorium FTI UKDW
-                        diberikan penghargaan sebesar 1 SKS per semester.-->
+                        Berkaitan dengan beban kerja yang ditugaskan, kepada Koordinator Laboratorium FTI UKDW
+                        diberikan penghargaan sebesar 1 SKS per semester.
                     </p>
                 </td>
             </tr>
@@ -265,16 +301,16 @@
                 <td valign="top" align="center"><p>:</p></td>
                 <td>
                     <p>
-                        <!---Apabila di kemudian hari ternyata terdapat kekeliruan dalam surat keputusan ini, maka
-                        akan dilakukan perbaikan sebagaimana mestinya.-->
+                        -Apabila di kemudian hari ternyata terdapat kekeliruan dalam surat keputusan ini, maka
+                        akan dilakukan perbaikan sebagaimana mestinya.
                     </p>
                 </td>
             </tr>
-        </table>
+        </table> -->
 
         <br>
         <br>
-
+        @foreach($sp as $k)
         <table width="50%" align="left" style="margin-left: 90px;">
             <tr>
                 <td>
@@ -285,11 +321,10 @@
                         <img src="images/{{$k->ttd}}" width="160" height="160">
                     </div>
                     <font style="font-size: 12px"><b>{{$k->nama_penjabat}}</b></font><br>
-                    <font style="font-size: 12px">NIK : 004 E 289</font>
+                    <font style="font-size: 12px">NIK : {{$k->nik}}</font>
                 </td>
             </tr>
         </table>
-        </center>
-    @endforeach
+        @endforeach
     </body>
 </html>

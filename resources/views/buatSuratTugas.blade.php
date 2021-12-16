@@ -150,7 +150,7 @@
                         <a class="btn btn-warning" href="buatSuratTugas/editST/{{$k->id_surat}}" role="button"><span data-feather="edit"></span></a>
                         <a class="btn btn-danger" href="buatSuratTugas/deleteST/{{$k->id_surat}}" role="button"><span data-feather="trash"></span></a>
                         @endif
-                        @if ($k->status == 'Disetujui' )
+                        @if($k->id_pejabat != null)
                             <a class="btn btn-info" href="buatSuratTugas/cetakST/{{$k->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
                         @endif
                     </td>

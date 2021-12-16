@@ -111,6 +111,8 @@
       {{csrf_field()}}
             <input type="hidden" class="form-control "  name="id_surat" value="{{$k->id_surat}}" placeholder="Masukkan Nomor Induk" >
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <input type="hidden" class="form-control "  name="status" value="" >
+            <input type="hidden" class="form-control "  name="keterangan" value="" >
           <div class="row">
                 <div class="mb-3">
                     <label class="form-label">Hal</label>

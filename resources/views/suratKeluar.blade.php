@@ -130,7 +130,7 @@
                     @if($k->status == 'Ditolak')
                                         <small class="btn btn-danger ">{{$k -> status}}</small>
                                     @endif
-                                  </td>
+                    </td>
                     </tr>
                 </tbody>
                 @endif
