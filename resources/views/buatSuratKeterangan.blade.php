@@ -142,7 +142,7 @@
                         <a class="btn btn-danger" href="buatSuratKeterangan/deleteSK/{{$k->id_surat}}" role="button"><span data-feather="trash"></span></a>
                         @endif
                         @if ($k->status == 'Disetujui' )
-                        <a class="btn btn-info" href="buatSuratKKM/cetakSuratKKM/{{$k->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
+                        <a class="btn btn-info" href="buatSuratKeterangan/cetakSK/{{$k->id_surat}}" role="button"><span data-feather="download-cloud"></span></a>
                         @endif
                     </td>
                     </tr><!-- Modal View-->

@@ -318,4 +318,10 @@ namespace App\Http\Controllers;
             $sk = DB::table('surat')->where('id_surat',$id)->delete();
             return redirect('/buatSuratKeterangan');
         }
+        public function cetakSK($id){
+            $sk = DB::table('surat')->where('id_surat',$id)->get();
+            $pdf = \PDF::loadView('cetakSK', ['sk' => $sk]);
+            return $pdf->stream('SuratKeterangan.pdf');
+            //return view('cetakSK', ['sk' => $sk]);
+        }
 	}

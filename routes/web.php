@@ -85,6 +85,7 @@ Route::post('/buatSuratKeterangan/simpanSK', 'BuatSuratController@simpanSK');
 Route::get('/buatSuratKeterangan/editSK/{id}', 'BuatSuratController@editSK');
 Route::post('/buatSuratKeterangan/updateSK','BuatSuratController@updateSK');
 Route::get('/buatSuratKeterangan/deleteSK/{id}','BuatSuratController@deleteSK');
+Route::get('/buatSuratKeterangan/cetakSK/{id}', 'BuatSuratController@cetakSK');
 
 //suratmasuk
 Route::get('/suratMasuk', 'SuratController@suratMasuk');
