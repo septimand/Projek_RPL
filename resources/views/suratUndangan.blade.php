@@ -114,31 +114,31 @@
           <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
                 <div class="mb-3">
                     <label class="form-label">Hal</label>
-                    <input type="text" class="form-control" id="Temakegiatan" name="hal" placeholder="Masukkan Perihal" >
+                    <input type="text" class="form-control" id="Temakegiatan" name="hal" placeholder="Masukkan Perihal" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Taggal Pembuatan Surat</label>
-                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_surat">
+                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_surat" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Kepada</label>
-                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" placeholder="Masukkan Tujuan Surat">
+                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" placeholder="Masukkan Tujuan Surat" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Keterangan</label>
-                    <input type="text" class="form-control" id="Tempatkegiatan" name="keterangan_surat"placeholder="Masukkan Keterangan Surat">
+                    <input type="text" class="form-control" id="Tempatkegiatan" name="keterangan_surat"placeholder="Masukkan Keterangan Surat" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tempat</label>
-                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" placeholder="Masukkan Tempat Pelaksanaan">
+                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" placeholder="Masukkan Tempat Pelaksanaan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Taggal Kegiatan</label>
-                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_laksanakan" placeholder="Masukkan Tanggal">
+                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_laksanakan" placeholder="Masukkan Tanggal" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Waktu</label>
-                    <input type="time" class="form-control" id="tanngalkegiatan" name="waktu_kgt" placeholder="Masukkan Waktu Pelaksanaan">
+                    <input type="time" class="form-control" id="tanngalkegiatan" name="waktu_kgt" placeholder="Masukkan Waktu Pelaksanaan" required>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
         </div></form>

@@ -107,6 +107,8 @@ namespace App\Http\Controllers;
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
                     'tema_kgt' => $request -> tema_kgt,
                     'menetapkan' => $request -> menetapkan,
+                    'menimbang' => $request -> menimbang,
+                    'mengingat' => $request -> mengingat,
             ]);
             return redirect('/buatSuratPersonalia');
         }
@@ -116,7 +118,7 @@ namespace App\Http\Controllers;
         }
 
         public function cetakSP($id){
-            $sp = DB::table('view_suratpersonalia')->where('id_surat',$id)->get(); 
+            $sp = DB::table('view_suratpersonalia')->where('id_surat',$id)->get();
             $cetakJson = Surat::where('id_surat', $id)->first();
             // $mengingat = $cetakJson->mengingat;
             // $menimbang = $cetakJson->menimbang;

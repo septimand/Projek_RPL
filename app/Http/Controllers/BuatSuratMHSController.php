@@ -51,8 +51,6 @@ namespace App\Http\Controllers;
                 DB::table('surat')->where('id_surat', $request->id_surat)->update([
                     'status' => $request -> status,
                     'keterangan' => $request -> keterangan,
-                    'no_induk' => $request -> no_induk,
-                    'name' => $request -> name,
                     'kgt_tugas' => $request -> kgt_tugas,
                     'tema_kgt' => $request -> tema_kgt,
                     'pyng_kgt' => $request -> pyng_kgt,

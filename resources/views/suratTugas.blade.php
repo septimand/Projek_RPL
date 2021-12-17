@@ -117,11 +117,11 @@
                 <div class="row">
                     <div class="col-5">
                         <label class="form-label">Nomor Induk</label>
-                        <input type="text" class="form-control " onkeyup="isi_otomatis()" id="nomor_induk" name="no_induk"  placeholder="Masukkan Nomor Induk" >
+                        <input type="text" class="form-control " onkeyup="isi_otomatis()" id="nomor_induk" name="no_induk"  placeholder="Masukkan Nomor Induk" required>
                     </div>
                     <div class="col-7">
                         <label class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama_user" name="name" placeholder="Masukkan Nama" >
+                        <input type="text" class="form-control" id="nama_user" name="name" placeholder="Masukkan Nama" required>
                     </div>
                     <!--div class="col-2">
                         <div >
@@ -133,19 +133,19 @@
                 <!--div class="suratTugas"></div-->
                 <div class="mb-3">
                     <label class="form-label"> Keterangan Tugas Sebagai</label>
-                    <input type="text" class="form-control" id="kgt_tugas" name="kgt_tugas" placeholder="Masukkan Keterangan Tugas">
+                    <input type="text" class="form-control" id="kgt_tugas" name="kgt_tugas" placeholder="Masukkan Keterangan Tugas" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tema kegiatan</label>
-                    <input type="text" class="form-control" id="tema_kgt" name="tema_kgt" placeholder="Masukkan Tema kegiatan" >
+                    <input type="text" class="form-control" id="tema_kgt" name="tema_kgt" placeholder="Masukkan Tema kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Penyelenggara kegiatan</label>
-                    <input type="text" class="form-control" id="pyng_kgt" name="pyng_kgt" placeholder="Masukkan Penyelenggara kegiatan">
+                    <input type="text" class="form-control" id="pyng_kgt" name="pyng_kgt" placeholder="Masukkan Penyelenggara kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tanggal pelaksanaan kegiatan</label>
-                    <input type="date" class="form-control" id="tgl_laksanakan" name="tgl_laksanakan" placeholder="Masukkan Tanggal pelaksanaan kegiatan">
+                    <input type="date" class="form-control" id="tgl_laksanakan" name="tgl_laksanakan" placeholder="Masukkan Tanggal pelaksanaan kegiatan" required>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
 

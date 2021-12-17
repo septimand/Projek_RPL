@@ -119,29 +119,29 @@
                 <div class="row">
                     <div class="col-5">
                         <label class="form-label">Nomor Induk</label>
-                        <input type="text" class="form-control " onkeyup="isi_otomatis()" id="nomor_induk" name="no_induk"  value="{{$k->no_induk}}" >
+                        <input type="text" class="form-control " onkeyup="isi_otomatis()" id="nomor_induk" name="no_induk"  value="{{$k->no_induk}}" required>
                     </div>
                     <div class="col-7">
                         <label class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama_user" name="name" value="{{$k->name}}" >
+                        <input type="text" class="form-control" id="nama_user" name="name" value="{{$k->name}}" required>
                     </div>
                     </div-->
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Keterangan Tugas Sebagai</label>
-                    <input type="text" class="form-control"  name="kgt_tugas" value="{{$k->kgt_tugas}}" placeholder="Masukkan Keterangan Tugas">
+                    <input type="text" class="form-control"  name="kgt_tugas" value="{{$k->kgt_tugas}}" placeholder="Masukkan Keterangan Tugas" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tema kegiatan</label>
-                    <input type="text" class="form-control"  name="tema_kgt" value="{{$k->tema_kgt}}" placeholder="Masukkan Tema kegiatan" >
+                    <input type="text" class="form-control"  name="tema_kgt" value="{{$k->tema_kgt}}" placeholder="Masukkan Tema kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Penyelenggara kegiatan</label>
-                    <input type="text" class="form-control" name="pyng_kgt" value="{{$k->pyng_kgt}}" placeholder="Masukkan Penyelenggara kegiatan">
+                    <input type="text" class="form-control" name="pyng_kgt" value="{{$k->pyng_kgt}}" placeholder="Masukkan Penyelenggara kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tanggal pelaksanaan kegiatan</label>
-                    <input type="date" class="form-control" name="tgl_laksanakan" value="{{$k->tgl_laksanakan}}" placeholder="Masukkan Tanggal pelaksanaan kegiatan">
+                    <input type="date" class="form-control" name="tgl_laksanakan" value="{{$k->tgl_laksanakan}}" placeholder="Masukkan Tanggal pelaksanaan kegiatan" required>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Simpan">
 

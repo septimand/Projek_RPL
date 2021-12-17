@@ -115,23 +115,23 @@
             <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
                 <div class="mb-3">
                     <label class="form-label">Tema Kegiatan</label>
-                    <input type="text" class="form-control" id="Temakegiatan" name="tema_kgt" placeholder="Masukkan Tema kegiatan" >
+                    <input type="text" class="form-control" id="Temakegiatan" name="tema_kgt" placeholder="Masukkan Tema kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tanggal</label>
-                    <input type="date" class="form-control" id="Tempatkegiatan" name="tgl_laksanakan" placeholder="Masukkan Tanggal kegiatan">
+                    <input type="date" class="form-control" id="Tempatkegiatan" name="tgl_laksanakan" placeholder="Masukkan Tanggal kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tempat</label>
-                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" placeholder="Masukkan Tempat Kegiatan">
+                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" placeholder="Masukkan Tempat Kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Narasumber</label>
-                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" placeholder="Masukkan Narasumber Kegiatan">
+                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" placeholder="Masukkan Narasumber Kegiatan" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Target Peserta Kegiatan</label>
-                    <input type="text" class="form-control" id="Harikegiatan" name="keterangan_surat" placeholder="Masukkan Peserta Kegiatan">
+                    <input type="text" class="form-control" id="Harikegiatan" name="keterangan_surat" placeholder="Masukkan Peserta Kegiatan" required>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
             </div>

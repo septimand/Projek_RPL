@@ -114,24 +114,24 @@
                 <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
                 <div class="col-5">
                     <label class="form-label">Nomor induk</label>
-                    <input type="text"  onkeyup="isi_otomatis()" id="nomor_induk" class="form-control" name="no_induk"  >
+                    <input type="text"  onkeyup="isi_otomatis()" id="nomor_induk" class="form-control" name="no_induk" required >
                 </div>
                 <div class="col-8">
                 </div>
                 <div class="col-5">
                     <label class="form-label"> Nama </label>
-                    <input type="text" id="nama_user" class="form-control"  name="name" >
+                    <input type="text" id="nama_user" class="form-control"  name="name" required >
                 </div>
                 <div class="col-8">
                 </div>
                 <div class="col-5">
                     <label class="form-label"> Jabatan</label>
-                    <input type="text" id="hak_akses" class="form-control"  name="keterangan_surat" >
+                    <input type="text" id="hak_akses" class="form-control"  name="keterangan_surat" required >
                 </div>
                 <div class="col-8">
                 </div>
                 <div class="col-8">
-                <input class="btn btn-primary mt-4" type="submit" value="Kirim">
+                <input class="btn btn-primary mt-4" type="submit" value="Kirim" >
                 </div>
             </div>
         </form>

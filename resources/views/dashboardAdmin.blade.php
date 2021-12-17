@@ -90,7 +90,7 @@
                 <span data-feather="mail"></span>
                 &nbsp&nbsp&nbsp&nbsp Surat
             </a>
-            <ul class="dropdown-menu dropdown-menu-lg-end" >
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="/suratMasuk">Surat Masuk</a></li>
                 <li><a class="dropdown-item" href="/suratKeluar">Surat Keluar</a></li>
                 <li><a class="dropdown-item" href="/arsipSurat">Arsip Surat</a></li>

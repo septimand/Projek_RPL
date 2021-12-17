@@ -90,19 +90,19 @@
                 <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
                 <div class="col-5">
                     <label class="form-label">Nomor induk</label>
-                    <input type="text" class="form-control"  id="nomor_induk" name="no_induk" value="{{ Auth::user()->nomor_induk }}" >
+                    <input type="text" class="form-control"  id="nomor_induk" name="no_induk" value="{{ Auth::user()->nomor_induk }}" required>
                 </div>
                 <div class="col-8">
                 </div>
                 <div class="col-5">
                     <label class="form-label"> Nama </label>
-                    <input type="text" class="form-control"  name="name" value="{{ Auth::user()->nama_user }}">
+                    <input type="text" class="form-control"  name="name" value="{{ Auth::user()->nama_user }}" required>
                 </div>
                 <div class="col-8">
                 </div>
                 <div class="col-5">
                     <label class="form-label"> Jabatan</label>
-                    <input type="text" class="form-control"  name="keterangan_surat"  value="{{ Auth::user()->hak_akses }}">
+                    <input type="text" class="form-control"  name="keterangan_surat"  value="{{ Auth::user()->hak_akses }}"  required>
                 </div>
                 <div class="col-8">
                 </div>

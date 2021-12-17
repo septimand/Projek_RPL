@@ -117,15 +117,15 @@
             <div class="row">
                 <div class="mb-3">
                     <label class="form-label">Nomor Induk</label>
-                    <input type="text" class="form-control" name="no_induk" id="Temakegiatan" value="{{$k->no_induk}}" >
+                    <input type="text" class="form-control" name="no_induk" id="Temakegiatan" value="{{$k->no_induk}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Nama</label>
-                    <input type="text" class="form-control"  name="name" id="Penyelenggarakegiatan" value="{{$k->name}}">
+                    <input type="text" class="form-control"  name="name" id="Penyelenggarakegiatan" value="{{$k->name}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Jabatan</label>
-                    <input type="text" class="form-control"  name="keterangan_surat" id="Penyelenggarakegiatan" value="{{$k->keterangan_surat}}">
+                    <input type="text" class="form-control"  name="keterangan_surat" id="Penyelenggarakegiatan" value="{{$k->keterangan_surat}}" required>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
             </div>

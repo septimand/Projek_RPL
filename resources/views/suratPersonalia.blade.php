@@ -115,12 +115,12 @@
                 <input type="hidden" class="form-control" id="id" name="id" value ="{{ Auth::user()->id }}">
                 <div class="mb-3">
                     <label class="form-label">Tentang</label>
-                    <input type="text" class="form-control" id="tema_kgt" name="tema_kgt" placeholder="Masukkan Tentang" >
+                    <input type="text" class="form-control" id="tema_kgt" name="tema_kgt" placeholder="Masukkan Tentang" required>
                 </div>
                 <div class="row">
                     <div class="col-10">
                         <label class="form-label">Menimbang</label>
-                        <textArea type="text" class="form-control " id="menimbang" name="menimbang[]"  placeholder="Masukkan Menimbang" ></textArea>
+                        <textArea type="text" class="form-control " id="menimbang" name="menimbang[]"  placeholder="Masukkan Menimbang" required></textArea>
                     </div>
                     <div class="col-2">
                         <div >
@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="col-10">
                         <label class="form-label">Mengingat</label>
-                        <textArea type="text" class="form-control " id="menimbang" name="mengingat[]"  placeholder="Masukkan Mengingat" ></textArea>
+                        <textArea type="text" class="form-control " id="menimbang" name="mengingat[]"  placeholder="Masukkan Mengingat" required></textArea>
                     </div>
                     <div class="col-2">
                         <div >
@@ -146,7 +146,7 @@
                 <div class="row">
                     <div class="col-10">
                         <label class="form-label">Menetapkan</label>
-                        <textArea type="text" class="form-control " id="menimbang" name="menetapkan[]"  placeholder="Masukkan Mengingat" ></textArea>
+                        <textArea type="text" class="form-control " id="menimbang" name="menetapkan[]"  placeholder="Masukkan Mengingat" required></textArea>
                     </div>
                     <div class="col-2">
                         <div >

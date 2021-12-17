@@ -116,31 +116,31 @@
           <div class="row">
                 <div class="mb-3">
                     <label class="form-label">Hal</label>
-                    <input type="text" class="form-control" id="Temakegiatan" name="hal" value="{{$k->hal}}" >
+                    <input type="text" class="form-control" id="Temakegiatan" name="hal" value="{{$k->hal}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Taggal Pembuatan Surat</label>
-                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_surat" value="{{$k->tgl_surat}}">
+                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_surat" value="{{$k->tgl_surat}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Kepada</label>
-                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" value="{{$k->kepada}}">
+                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" value="{{$k->kepada}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Keterangan</label>
-                    <input type="text" class="form-control" id="Tempatkegiatan" name="keterangan_surat" value="{{$k->keterangan_surat}}">
+                    <input type="text" class="form-control" id="Tempatkegiatan" name="keterangan_surat" value="{{$k->keterangan_surat}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tempat</label>
-                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" value="{{$k->tmpt_kgt}}">
+                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" value="{{$k->tmpt_kgt}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Taggal Kegiatan</label>
-                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_laksanakan" value="{{$k->tgl_laksanakan}}">
+                    <input type="date" class="form-control" id="Harikegiatan" name="tgl_laksanakan" value="{{$k->tgl_laksanakan}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Waktu</label>
-                    <input type="time" class="form-control" id="tanngalkegiatan" name="waktu_kgt" value="{{$k->waktu_kgt}}">
+                    <input type="time" class="form-control" id="tanngalkegiatan" name="waktu_kgt" value="{{$k->waktu_kgt}}" required>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
         </div></form>

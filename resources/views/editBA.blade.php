@@ -117,23 +117,23 @@
             <div class="row">
                 <div class="mb-3">
                     <label class="form-label">Tema Kegiatan</label>
-                    <input type="text" class="form-control" id="Temakegiatan" name="tema_kgt" value="{{$k->tema_kgt}}" >
+                    <input type="text" class="form-control" id="Temakegiatan" name="tema_kgt" value="{{$k->tema_kgt}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tanggal</label>
-                    <input type="date" class="form-control" id="Tempatkegiatan" name="tgl_laksanakan" value="{{$k->tgl_laksanakan}}">
+                    <input type="date" class="form-control" id="Tempatkegiatan" name="tgl_laksanakan" value="{{$k->tgl_laksanakan}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Tempat</label>
-                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" value="{{$k->tmpt_kgt}}" >
+                    <input type="text" class="form-control" id="tanngalkegiatan" name="tmpt_kgt" value="{{$k->tmpt_kgt}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Narasumber</label>
-                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" value="{{$k->kepada}}" >
+                    <input type="text" class="form-control" id="Penyelenggarakegiatan" name="kepada" value="{{$k->kepada}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Target Peserta Kegiatan</label>
-                    <input type="text" class="form-control" id="Harikegiatan" name="keterangan_surat" value="{{$k->keterangan_surat}}" >
+                    <input type="text" class="form-control" id="Harikegiatan" name="keterangan_surat" value="{{$k->keterangan_surat}}" required>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="Kirim">
             </div>
