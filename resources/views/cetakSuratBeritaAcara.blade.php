@@ -83,8 +83,7 @@
             <tr>
                 <td style="text-align: justify">
                     <p>
-                        Pada hari ini: {{ \Carbon\Carbon::parse($s->tgl_laksanakan)->isoformat('dddd, D MMMM Y') }} bertempat di {{$s->tmpt_kgt}},
-                        Univeristas Krsiten Duta Wacana telah dilangsungkan Kuliah Umum dengan tema: <i>"{{$s->tema_kgt}}"</i> dengan
+                        Pada hari {{ \Carbon\Carbon::parse($s->tgl_laksanakan)->isoformat('dddd, D MMMM Y') }} bertempat di {{$s->tmpt_kgt}} dengan tema: <i>"{{$s->tema_kgt}}"</i> dengan
                         mengundang pembicara yaitu {{$s->kepada}}. Acara ini
                         diikuti oleh {{$s->keterangan_surat}}.
                     </p>

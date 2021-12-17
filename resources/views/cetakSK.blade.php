@@ -44,7 +44,7 @@
                 <td align="center">
                     <center>
                         <font size="20px">
-                            <b><u>Surat Keterangan Aktif Mengajar</u></b>
+                            <b><u>Surat Keterangan Aktif</u></b>
                         </font>
                         <br>
                         <font>
@@ -128,8 +128,7 @@
             <tr>
                 <td>
                     <p>
-                        Merupakan Dosen Fakultas Teknologi Informasi Universitas Kristen Duta Wacana yang aktif
-                        sebagai tenaga pengajar. Demikian surat keterangan ini kami buat, untuk dapat digunakan
+                        Merupakan {{$s->keterangan_surat}} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana yang aktif. Demikian surat keterangan ini kami buat, untuk dapat digunakan
                         sebagaimana mestinya. Atas, perhatian dan kerjasama kami ucapkan terimakasih.
                     </p>
                 </td>

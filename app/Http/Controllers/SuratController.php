@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Surat;
 
     class SuratController extends Controller
     {
@@ -48,10 +49,14 @@ use Illuminate\Support\Facades\DB;
         //return view('cetakSuratTugas', ['st' => $st]);
         }
     public function cetakSP01($id){
-            $sp = DB::table('view_suratpersonalia')->where('id_surat',$id)->get();
-            $pdf = \PDF::loadView('cetakSuratPersonalia', ['sp' => $sp]);
-            return $pdf->stream('SuratPersonalia.pdf');
-            // return view('cetakSuratKeputusanDkn', ['sk' => $sk]);
+        $sp = DB::table('view_suratpersonalia')->where('id_surat',$id)->get();
+        $cetakJson = Surat::where('id_surat', $id)->first();
+        // $mengingat = $cetakJson->mengingat;
+        // $menimbang = $cetakJson->menimbang;
+        // $menetapkan = $cetakJson->menetapkan;
+        $pdf = \PDF::loadView('cetakSuratPersonalia',compact('sp','cetakJson'), ['sp' => $sp, 'cetakJson' => $cetakJson]);
+        // $pdf = \PDF::loadView('cetakSuratPersonalia', ['sp' => $sp, 'mengingat' => $mengingat, 'menimbang' => $menimbang, 'menetapkan' => $menetapkan]);
+        return $pdf->stream('SuratPersonalia.pdf');
         }
         public function cetakSU03($id){
             $su = DB::table('view_suratundangan')->where('id_surat',$id)->get();
